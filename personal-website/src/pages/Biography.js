@@ -1,16 +1,20 @@
 import React from 'react';
 import Header from "../components/Header";
+import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 
-const NotFound = () => {
+const Biography = () => {
     return (
         <div>
             <Header/>
-            <h1>404 Page Not Found</h1>
+            <Navigation/>
+
+            <h1>My vision</h1>
 
             <Footer/>
+
         </div>
     );
 };
 
-export default NotFound;
+export default Biography;

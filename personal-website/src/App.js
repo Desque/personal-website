@@ -8,12 +8,14 @@ import HardSkills from "./pages/HardSkills";
 import Projects from "./pages/Projects";
 import Searching from "./pages/Searching";
 import Contact from "./pages/Contact";
+import Biography from "./pages/Biography";
 
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
           <Route path="/" element={<Home/>} />
+          <Route path="/bio" element={<Biography/>} />
           <Route path="/description" element={<Description/>} />
           <Route path="/soft-skills" element={<SoftSkills/>} />
           <Route path="/hard-skills" element={<HardSkills/>} />
