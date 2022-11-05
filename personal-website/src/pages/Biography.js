@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 
 const Biography = () => {
     return (
-        <div>
+        <div className="container">
             <Header/>
             <Navigation/>
 

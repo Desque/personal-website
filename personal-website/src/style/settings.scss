@@ -15,20 +15,64 @@ $primary-color : #35495E;
 $secondary-color : #EEEEEE;
 $tertiary-color : #8c52ff;
 
+//Breakpoints to make the app responsive
+$breakpoints: (
+  mobile : 599px,
+  pad : 1279px,
+);
+
 // Mixins
-@mixin vertical-center {
+@mixin renderFlex($direction : row,$alignement : center,$justify : space-between,$gap : unset) {
+  display: flex;
+  width: 100%;
+  flex-direction: $direction;
+  gap: $gap;
+  align-items: $alignement;
+  justify-content: $justify;
+}
+@mixin renderAbsolute($top,$right,$bottom,$left) {
+  position: absolute;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+@mixin mobile-only {
+  @media screen and (max-width: map-get($breakpoints, mobile)){
+    @content;
+  }
+}
+@mixin mobile-pad {
+  @media screen and (max-width: map-get($breakpoints, pad)){
+    @content;
+  }
+}
+
+//Placeholders
+%vertical-center {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-//functions
-
+//global scss
 body {
+  margin: 0;
+  width: 100vw;
   background-color: $secondary-color;
   font-family: $font-2;
   color: $primary-color;
-  display: flex;
-  flex-direction: column;
+  @include renderFlex(column,flex-start);
+  @include mobile-pad {
+    @include renderFlex(flex-start,center);
+  }
 }
+.container {
+  width: 100%;
+  height: 100%;
+  margin: 20px;
+}
+
+
+
 

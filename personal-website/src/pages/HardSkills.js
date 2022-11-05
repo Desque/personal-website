@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 
 const HardSkills = () => {
     return (
-        <div>
+        <div className="container">
             <Header/>
             <Navigation/>
             <h1>HARD SKILLS</h1>

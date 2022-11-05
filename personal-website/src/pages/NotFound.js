@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 
 const NotFound = () => {
     return (
-        <div>
+        <div className="container">
             <Header/>
             <h1>404 Page Not Found</h1>
 

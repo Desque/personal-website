@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 
 const Searching = () => {
     return (
-        <div>
+        <div className="container">
             <Header/>
             <Navigation/>
             <h1>Searching ...</h1>

@@ -1,0 +1,49 @@
+.header {
+  width: 100vw;
+  @include renderFlex(row,center,space-between,250px);
+  white-space: nowrap;
+  @include mobile-pad {
+    white-space: break-spaces;
+    @include renderFlex(column,center,center);
+  }
+  > h1 {
+    margin:0;
+    font-size: 2.5rem;
+    @include mobile-only {
+      font-size: 2rem;
+    }
+  }
+  > h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    width: 38ch;
+    animation: typing 1s steps(38), blink .5s step-end infinite alternate;
+    white-space: nowrap;
+    overflow: hidden;
+    @include mobile-only {
+      font-size: 1rem;
+    }
+    @keyframes typing {
+      from {
+        width: 0
+      }
+    }
+    @keyframes blink {
+      50% {
+        border-color: transparent
+      }
+    }
+  }
+}
+.header-link {
+  color: $primary-color;
+  text-decoration: none;
+}
+.header-link:active {
+  color: $tertiary-color;
+  transform: translateY(5px);
+  transition-duration: .1s;
+}
+.header-link:hover {
+  color: $tertiary-color;
+}
