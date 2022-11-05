@@ -10,6 +10,15 @@
 $font-1 : "font1", sans-serif;
 $font-2 : "font2", sans-serif;
 
+$font-size-1 : 2.5rem;
+$font-size-2 : 1.5rem;
+$font-size-3 : 1rem;
+$font-size-pad-1 : 2rem;
+$font-size-pad-2 : 1rem;
+$font-size-pad-3 : .5rem;
+$font-size-mobile-1 : 1.5rem;
+$font-size-mobile-2 : .5rem;
+$font-size-mobile-3 : .2rem;
 // Colors
 $primary-color : #35495E;
 $secondary-color : #EEEEEE;
@@ -58,19 +67,15 @@ $breakpoints: (
 //global scss
 body {
   margin: 0;
-  width: 100vw;
   background-color: $secondary-color;
   font-family: $font-2;
   color: $primary-color;
-  @include renderFlex(column,flex-start);
-  @include mobile-pad {
-    @include renderFlex(flex-start,center);
-  }
 }
 .container {
-  width: 100%;
+  margin: 0;
+  padding: 0 20px 20px 20px;
+  width: inherit;
   height: 100%;
-  margin: 20px;
 }
 
 

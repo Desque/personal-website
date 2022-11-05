@@ -1,27 +1,33 @@
 .header {
-  width: 100vw;
-  @include renderFlex(row,center,space-between,250px);
+  @include renderFlex(row,center);
   white-space: nowrap;
   @include mobile-pad {
     white-space: break-spaces;
     @include renderFlex(column,center,center);
   }
   > h1 {
+    padding: 0;
     margin:0;
-    font-size: 2.5rem;
+    font-size: $font-size-1;
     @include mobile-only {
-      font-size: 2rem;
+      font-size: $font-size-mobile-1;
+    }
+    @include mobile-only {
+      font-size: $font-size-pad-1;
     }
   }
   > h2 {
-    margin: 0;
-    font-size: 1.5rem;
-    width: 38ch;
-    animation: typing 1s steps(38), blink .5s step-end infinite alternate;
+    margin: 0 !important;
+    font-size: $font-size-2;
+    width: 39ch;
+    animation: typing 1s steps(39), blink .5s step-end infinite alternate;
     white-space: nowrap;
     overflow: hidden;
+    @include mobile-pad {
+      font-size: $font-size-pad-2;
+    }
     @include mobile-only {
-      font-size: 1rem;
+      font-size: $font-size-mobile-2;
     }
     @keyframes typing {
       from {
