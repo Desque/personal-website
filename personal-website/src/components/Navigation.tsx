@@ -17,8 +17,8 @@ const MenuButtonStyle = (activePage : string, page : string) : string => {
         ' lg:text-2xl text-md' +
         ' rounded-lg flex flex-col justify-evenly items-center shadow-3xl' +
         ' lg:m-6 sm:m-4 m-2' +
-        ' lg:w-48 sm:w-32 w-16 px-6 aspect-square'
-    let specificStyle = activePage === page ? 'text-secondary bg-tertiary' : 'text-primary bg-white hover:text-tertiary'
+        ' lg:w-48 sm:w-32 w-16 px-6 aspect-square '
+    let specificStyle = activePage === page ? 'text-secondary bg-tertiary' : 'text-primary bg-white border-2 border-white hover:text-tertiary hover:border-tertiary hover:scale-125 hover:duration-200'
     return specificStyle + globalStyle
 }
 
