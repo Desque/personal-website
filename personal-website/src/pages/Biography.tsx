@@ -4,8 +4,6 @@ import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 
 const Biography = () => {
-    /* Auto generated, hash = 2xnr98u0iux66h5q9lkxquv5q */
-
     (function(window : any) {
         /**
          * Renders all unrendred LinkedIn Badges on the page
@@ -216,22 +214,17 @@ const Biography = () => {
 
     })(window);
     return (
-        <div className="container">
-            <Header/>
-            <Navigation/>
-            <div className="page">
-                <h1>Who am I ?</h1>
-                <div className="main-info">
-                    <div className="badge-base LI-profile-badge" data-locale="fr_FR" data-size="medium" data-theme="light"
-                         data-vanity="quentin-desbrousses" data-version="v1"><a
-                        className="badge-base__link LI-simple-link"
-                        href="https://fr.linkedin.com/in/quentin-desbrousses?trk=profile-badge">Quentin Desbrousses</a>
-                    </div>
+        <div>
+            <h1>Who am I ?</h1>
+            <div className="main-info">
+                <div className="badge-base LI-profile-badge" data-locale="fr_FR" data-size="medium" data-theme="light"
+                     data-vanity="quentin-desbrousses" data-version="v1"><a
+                    className="badge-base__link LI-simple-link"
+                    href="https://fr.linkedin.com/in/quentin-desbrousses?trk=profile-badge">Quentin Desbrousses</a>
                 </div>
-                <div className="education"></div>
-                <div className="interests"></div>
             </div>
-            <Footer/>
+            <div className="education"></div>
+            <div className="interests"></div>
         </div>
     );
 };

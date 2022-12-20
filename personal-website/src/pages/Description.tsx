@@ -5,13 +5,8 @@ import Footer from "../components/Footer";
 
 const Description = () => {
     return (
-        <div className="container">
-            <Header/>
-            <Navigation/>
-            <div className="page">
-                <h1>Who am I ?</h1>
-            </div>
-            <Footer/>
+        <div>
+            <h1>Who am I ?</h1>
         </div>
     );
 };

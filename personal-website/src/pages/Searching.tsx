@@ -5,13 +5,8 @@ import Footer from "../components/Footer";
 
 const Searching = () => {
     return (
-        <div className="container">
-            <Header/>
-            <Navigation/>
-            <div className="page">
-                <h1>Results for the research : "ALL"</h1>
-            </div>
-            <Footer/>
+        <div>
+            <h1>Results for the research : "ALL"</h1>
         </div>
     );
 };

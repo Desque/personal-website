@@ -1,14 +1,14 @@
 // Fonts
 @font-face {
-  font-family: font1;
+  font-family: Raleway;
   src: url("../assets/fonts/Raleway/Raleway-Regular.ttf");
 }
 @font-face {
-  font-family: font2;
+  font-family: Exo;
   src: url("../assets/fonts/Exo/exo-16.ttf");
 }
-$font-1 : "font1", sans-serif;
-$font-2 : "font2", sans-serif;
+$font-1 : "Raleway", sans-serif;
+$font-2 : "Exo", sans-serif;
 
 $font-size-1 : 2.5rem;
 $font-size-2 : 1.5rem;
@@ -66,13 +66,8 @@ $breakpoints: (
   align-items: center;
 }
 
-//global scss
-body {
-  margin: 0;
-  background-color: $secondary-color;
-  font-family: $font-2;
-  color: $primary-color;
-}
+//global style
+
 .container {
   margin: 0;
   padding: 0 20px 20px 20px;
@@ -81,12 +76,10 @@ body {
 }
 .page {
   text-align: center;
-  background-color: $secondary-color;
-  color: $primary-color;
   border-radius: 15px;
   padding: 2%;
   margin: 20px 0 20px 0;
-  min-height: 500px;
+  min-height: 80vh;
 }
 .align-icon {
   vertical-align: middle;

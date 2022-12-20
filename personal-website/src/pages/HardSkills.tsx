@@ -5,13 +5,8 @@ import Footer from "../components/Footer";
 
 const HardSkills = () => {
     return (
-        <div className="container">
-            <Header/>
-            <Navigation/>
-            <div className="page">
-                <h1>HARD SKILLS</h1>
-            </div>
-            <Footer/>
+        <div>
+            <h1>HARD SKILLS</h1>
         </div>
     );
 };

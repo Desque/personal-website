@@ -3,7 +3,7 @@ import CarouselCard from "./CarouselCard";
 
 const Carousel = () => {
     return (
-        <div className="carousel">
+        <div className="carousel ">
             <CarouselCard/>
             <CarouselCard/>
             <CarouselCard/>
