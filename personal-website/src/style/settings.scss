@@ -15,10 +15,11 @@ $font-size-2 : 1.5rem;
 $font-size-3 : 1rem;
 $font-size-pad-1 : 2rem;
 $font-size-pad-2 : 1rem;
-$font-size-pad-3 : .5rem;
+$font-size-pad-3 : 1rem;
 $font-size-mobile-1 : 1.5rem;
-$font-size-mobile-2 : .5rem;
-$font-size-mobile-3 : .2rem;
+$font-size-mobile-2 : 1rem;
+$font-size-mobile-3 : 1rem;
+
 // Colors
 $primary-color : #35495E;
 $secondary-color : #EEEEEE;
@@ -31,8 +32,9 @@ $breakpoints: (
 );
 
 // Mixins
-@mixin renderFlex($direction : row,$alignement : center,$justify : space-between,$gap : unset) {
+@mixin renderFlex($direction : row,$alignement : center,$justify : space-between,$gap : unset,$wrap : wrap) {
   display: flex;
+  flex-wrap: $wrap;
   width: 100%;
   flex-direction: $direction;
   gap: $gap;
@@ -76,6 +78,75 @@ body {
   padding: 0 20px 20px 20px;
   width: inherit;
   height: 100%;
+}
+.page {
+  text-align: center;
+  background-color: $secondary-color;
+  color: $primary-color;
+  border-radius: 15px;
+  padding: 2%;
+  margin: 20px 0 20px 0;
+  min-height: 500px;
+}
+.align-icon {
+  vertical-align: middle;
+}
+.primary-link {
+  color: $primary-color;
+}
+.primary-link:hover {
+  color: $tertiary_color;
+}
+.secondary-link {
+  color: $secondary-color;
+}
+.secondary-link:hover {
+  color: $tertiary_color;
+}
+.color-1 {
+  color: $primary-color !important;
+}
+.bc-1 {
+  background-color: $primary-color !important;
+}
+.color-2 {
+  color: $secondary-color !important;
+}
+.bc-2 {
+  background-color: $secondary-color !important;
+}
+.color-3 {
+  color: $tertiary-color !important;
+}
+.bc-3 {
+  background-color: $tertiary-color !important;
+}
+.h1-font-size {
+  font-size: $font-size-1;
+  @include mobile-pad {
+    font-size: $font-size-pad-1;
+  }
+  @include mobile-only {
+    font-size: $font-size-mobile-1;
+  }
+}
+.h2-font-size {
+  font-size: $font-size-2;
+  @include mobile-pad {
+    font-size: $font-size-pad-2;
+  }
+  @include mobile-only {
+    font-size: $font-size-mobile-2;
+  }
+}
+.p-font-size {
+  font-size: $font-size-3;
+  @include mobile-pad {
+    font-size: $font-size-pad-3;
+  }
+  @include mobile-only {
+    font-size: $font-size-mobile-3;
+  }
 }
 
 

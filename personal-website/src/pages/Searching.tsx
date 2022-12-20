@@ -3,16 +3,17 @@ import Header from "../components/Header";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 
-const SoftSkills = () => {
+const Searching = () => {
     return (
         <div className="container">
             <Header/>
             <Navigation/>
-            <h1>My SOFT SKILLS</h1>
-
+            <div className="page">
+                <h1>Results for the research : "ALL"</h1>
+            </div>
             <Footer/>
         </div>
     );
 };
 
-export default SoftSkills;
+export default Searching;

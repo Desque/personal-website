@@ -3,17 +3,17 @@ import Header from "../components/Header";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 
-const Contact = () => {
+const HardSkills = () => {
     return (
         <div className="container">
             <Header/>
             <Navigation/>
-
-            <h1>Contact me</h1>
-
+            <div className="page">
+                <h1>HARD SKILLS</h1>
+            </div>
             <Footer/>
         </div>
     );
 };
 
-export default Contact;
+export default HardSkills;

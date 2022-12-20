@@ -1,7 +1,13 @@
+///Components
 @import "./settings";
 @import "./components/Header";
 @import "./components/Navigation";
+@import "./components/CarouselCard";
 @import "./components/Carousel";
 @import "./components/Footer";
 @import "./components/Item";
 @import "./components/ItemList";
+
+// Pages
+@import "./pages/Home";
+@import "./pages/NotFound";

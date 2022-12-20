@@ -1,34 +1,25 @@
 .header {
-  @include renderFlex(row,center);
+  @include renderFlex(row,center,space-between,0,nowrap);
   white-space: nowrap;
   @include mobile-pad {
     white-space: break-spaces;
-    @include renderFlex(column,center,center);
+    @include renderFlex(column,center,center,0);
   }
-  > h1 {
-    padding: 0;
-    margin:0;
-    font-size: $font-size-1;
-    @include mobile-only {
-      font-size: $font-size-mobile-1;
+  > * {
+    @include renderFlex(row,center,space-between,20px,nowrap);
+    @include mobile-pad {
+      @include renderFlex(row,center,center,20px,nowrap)
     }
     @include mobile-only {
-      font-size: $font-size-pad-1;
+      @include renderFlex(column,center,space-between,20px)
     }
   }
-  > h2 {
-    margin: 0 !important;
-    font-size: $font-size-2;
+  > * > h2 {
+    margin: 0;
     width: 39ch;
     animation: typing 1s steps(39), blink .5s step-end infinite alternate;
     white-space: nowrap;
     overflow: hidden;
-    @include mobile-pad {
-      font-size: $font-size-pad-2;
-    }
-    @include mobile-only {
-      font-size: $font-size-mobile-2;
-    }
     @keyframes typing {
       from {
         width: 0
@@ -52,4 +43,19 @@
 }
 .header-link:hover {
   color: $tertiary-color;
+}
+.header-dl {
+  background-color: $tertiary-color;
+  border-radius: 50px;
+  color: $secondary-color;
+  text-decoration: none;
+  padding: 5px 10px 5px 10px;
+}
+.header-dl:hover {
+  color: $primary-color;
+}
+.header-dl:active {
+  color: $primary-color;
+  transform: translateY(5px);
+  transition-duration: .1s;
 }

@@ -3,16 +3,17 @@ import Header from "../components/Header";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 
-const Projects = () => {
+const Description = () => {
     return (
         <div className="container">
             <Header/>
             <Navigation/>
-            <h1>My projects</h1>
-
+            <div className="page">
+                <h1>Who am I ?</h1>
+            </div>
             <Footer/>
         </div>
     );
 };
 
-export default Projects;
+export default Description;
