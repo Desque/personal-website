@@ -1,4 +1,3 @@
-import './App.css';
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
@@ -9,6 +8,7 @@ import Projects from "./pages/Projects";
 import Searching from "./pages/Searching";
 import Contact from "./pages/Contact";
 import Biography from "./pages/Biography";
+import React from 'react';
 
 const App = () => {
   return (

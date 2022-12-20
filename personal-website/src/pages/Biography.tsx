@@ -5,7 +5,8 @@ import Footer from "../components/Footer";
 
 const Biography = () => {
     /* Auto generated, hash = 2xnr98u0iux66h5q9lkxquv5q */
-    (function(window) {
+
+    (function(window : any) {
         /**
          * Renders all unrendred LinkedIn Badges on the page
          */
@@ -16,8 +17,8 @@ const Biography = () => {
                 TRACKING_PARAM = 'profile-badge',
                 responsesReceived = 0, //Keeps track of number of responses recieved for proper cleanup when finished
                 expectedResponses = 0, //Keeps track of number of responses to expect
-                scripts = [], //Keeps track of scripts added for proper cleanup when finished
-                childScripts = {}, //Keeps track of child scripts to render
+                scripts: HTMLScriptElement[] = [], //Keeps track of scripts added for proper cleanup when finished
+                childScripts : any = {}, //Keeps track of child scripts to render
                 badges = Array.prototype.slice.call(document.querySelectorAll(BADGE_NAMES));
 
             let i, len, badge, rendered;
@@ -40,7 +41,7 @@ const Biography = () => {
                 return false;
             }
 
-            function generateUrl(isEI) {
+            function generateUrl(isEI : any) {
                 const domainPrefix = isEI ? 'https://badges.linkedin-ei' : 'https://badges.linkedin';
                 if (isCNDomain()) {
                     return domainPrefix + ".cn/";
@@ -49,7 +50,7 @@ const Biography = () => {
                 return domainPrefix + ".com/";
             }
 
-            function getBadgeKeyQueryParams(badge) {
+            function getBadgeKeyQueryParams(badge : any) {
                 return Array.prototype.slice.call(badge.attributes).filter(function (attr) {
                     return attr.name.lastIndexOf('data-key-', 0) !== -1;
                 }).map(function (attr) {
@@ -63,7 +64,7 @@ const Biography = () => {
             * Renders a single badge on the page
             * @param badge: div element of badge to render
             */
-            function renderBadge(badge) {
+            function renderBadge(badge : any) {
                 let size = badge.getAttribute('data-size'),
                     locale = badge.getAttribute('data-locale'),
                     type = badge.getAttribute('data-type'),
@@ -110,7 +111,7 @@ const Biography = () => {
              * @param badgeHtml: String representing contents of the badge
              * @param badgeUid: UID of the badge to target
              **/
-            function responseHandler(badgeHtml, badgeUid) {
+            function responseHandler(badgeHtml : any, badgeUid : any) {
                 responsesReceived ++;
 
                 let i, badge, uid, isCreate;
@@ -124,7 +125,7 @@ const Biography = () => {
                     uid   = parseInt(badge.getAttribute('data-uid'), 10);
                     if (uid === badgeUid) {
                         const badgeMarkup = `<body>${badgeHtml}</body>`;
-                        const iframe = document.createElement('iframe');
+                        const iframe : any = document.createElement('iframe');
                         iframe.onload = function() {
                             const iframeBody = iframe.contentWindow.document.body;
                             // 5 px buffer to avoid the badge border being cut off.
@@ -144,7 +145,7 @@ const Biography = () => {
             }
 
             // These functions are needed because badge markup is added via innerHtml property which does not run script tags
-            function replaceScriptTags(node, isCreate) {
+            function replaceScriptTags(node : any, isCreate : any) {
                 if (shouldReplaceNode(node, isCreate)) {
                     node.parentNode.replaceChild(cloneScriptNode(node), node);
                     childScripts[node.src] = true;
@@ -158,15 +159,15 @@ const Biography = () => {
                 return node;
             }
 
-            function shouldReplaceNode(node, isCreate) {
+            function shouldReplaceNode(node : any, isCreate : any) {
                 return isScriptNode(node) && !childScripts[node.src] && (!isCreate || (isCreate && !node.getAttribute('data-isartdeco')));
             }
 
-            function isScriptNode(node) {
+            function isScriptNode(node : any) {
                 return node.tagName === 'SCRIPT';
             }
 
-            function cloneScriptNode(node){
+            function cloneScriptNode(node : any){
                 const script = document.createElement("script");
                 for(let i = node.attributes.length-1; i >= 0; i-- ) {
                     script.setAttribute( node.attributes[i].name, node.attributes[i].value );
@@ -199,7 +200,7 @@ const Biography = () => {
             * Makes Jsonp request, responses handles by CALLBACK_NAME
             * @param url String: url of server to make request to
             */
-            function jsonp(url) {
+            function jsonp(url : string) {
                 const script = document.createElement('script');
                 script.src = url;
                 scripts.push(script);
