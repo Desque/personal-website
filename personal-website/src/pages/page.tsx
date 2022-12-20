@@ -10,9 +10,9 @@ interface PageComponent {
 
 const Page = (props : PageComponent) => {
     return (
-        <div className="m-0 text-primary bg-secondary font-sans">
+        <div className="m-0 w-full text-primary bg-secondary font-sans">
             <Header/>
-            <div className="h-screen">
+            <div className="min-h-screen pt-20 mb-20">
                 <Navigation activePage={props.pageName}/>
                 <div className="rounded-lg w-10/12 p-6 m-auto">
                     {props.page}

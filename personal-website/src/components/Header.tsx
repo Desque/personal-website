@@ -4,7 +4,7 @@ import {BsDownload} from "react-icons/bs";
 
 const Header = () => {
     return (
-        <div className="whitespace-nowrap w-screen flex justify-between items-center fixed top-0 bg-white shadow-3xl px-6 py-2 z-50">
+        <div className="whitespace-nowrap w-full flex justify-between items-center fixed top-0 bg-white shadow-3xl px-6 py-2 z-50">
             <NavLink to="/" className="no-underline text-primary hover:text-tertiary active:translate-y-2 active:duration-100" >
                 <h1 className='lg:text-3xl sm:text-2xl text-xl'>QUENTIN DESBROUSSES</h1>
             </NavLink>
