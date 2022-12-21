@@ -68,22 +68,6 @@ $breakpoints: (
 
 //global style
 
-.container {
-  margin: 0;
-  padding: 0 20px 20px 20px;
-  width: inherit;
-  height: 100%;
-}
-.page {
-  text-align: center;
-  border-radius: 15px;
-  padding: 2%;
-  margin: 20px 0 20px 0;
-  min-height: 80vh;
-}
-.align-icon {
-  vertical-align: middle;
-}
 .primary-link {
   color: $primary-color;
 }

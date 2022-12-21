@@ -1,5 +1,6 @@
 import React from 'react';
 import Carousel from "../components/Carousel";
+import {BsSearch} from "react-icons/bs";
 
 const Home = () => {
     return (
