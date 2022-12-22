@@ -28,6 +28,7 @@ module.exports = {
       'primary':'#35495E',
       'secondary':'#EEEEEE',
       'tertiary':'#8c52ff',
+      'imagebg':'#D3D0E3',
       'white':'#ffffff'
     },
     extend: {

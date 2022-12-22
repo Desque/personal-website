@@ -1,230 +1,121 @@
-import React from 'react';
-import Header from "../components/Header";
-import Navigation from "../components/Navigation";
-import Footer from "../components/Footer";
+import React, {useState} from 'react';
+import {BsCheck, BsCodeSquare, BsFillBrushFill} from "react-icons/bs";
 
 const Biography = () => {
-    (function(window : any) {
-        /**
-         * Renders all unrendred LinkedIn Badges on the page
-         */
-        window.LIRenderAll = function () {
-            let CALLBACK_NAME = 'LIBadgeCallback', //Must match callback on helpers.js
-                BADGE_NAMES = '.LI-profile-badge, .LI-entity-badge',
-                // TODO -- tracking param for other badge types
-                TRACKING_PARAM = 'profile-badge',
-                responsesReceived = 0, //Keeps track of number of responses recieved for proper cleanup when finished
-                expectedResponses = 0, //Keeps track of number of responses to expect
-                scripts: HTMLScriptElement[] = [], //Keeps track of scripts added for proper cleanup when finished
-                childScripts : any = {}, //Keeps track of child scripts to render
-                badges = Array.prototype.slice.call(document.querySelectorAll(BADGE_NAMES));
 
-            let i, len, badge, rendered;
-            for (i = 0, len = badges.length;  i < len; i++) {
-                badge    = badges[i];
-                rendered =  badge.getAttribute('data-rendered');
-                if (!rendered) {
-                    expectedResponses++;
-                    badge.setAttribute('data-rendered', true);
-                    renderBadge(badge);
-                }
+    const [openPresentation,setOpenPresentation] = useState(false);
+    const [openSoftSkills,setOpenSoftSkills] = useState(false);
+    const [openInterests,setOpenInterests] = useState(false);
+    const [copied,setCopied] = useState(false);
+
+    const handleDropdown = (type:string) => {
+        switch (type) {
+            case 'presentation' : {
+                setOpenPresentation(!openPresentation)
+                break;
             }
-
-            function isCNDomain() {
-                if (typeof window !== "undefined") {
-                    const hostName = window.location && window.location.hostname || '';
-                    return (/linkedin(-ei)?.cn$/).test(hostName);
-                }
-
-                return false;
+            case 'studies' : {
+                setOpenSoftSkills(!openSoftSkills)
+                break;
             }
-
-            function generateUrl(isEI : any) {
-                const domainPrefix = isEI ? 'https://badges.linkedin-ei' : 'https://badges.linkedin';
-                if (isCNDomain()) {
-                    return domainPrefix + ".cn/";
-                }
-
-                return domainPrefix + ".com/";
+            case 'interests' : {
+                setOpenInterests(!openInterests)
+                break;
             }
-
-            function getBadgeKeyQueryParams(badge : any) {
-                return Array.prototype.slice.call(badge.attributes).filter(function (attr) {
-                    return attr.name.lastIndexOf('data-key-', 0) !== -1;
-                }).map(function (attr) {
-                    // Most browsers automatically lowercase the attribute name when its being read
-                    // We are calling lowercase on it again to ensure consistency for any browsers that are lagging behind.
-                    return encodeURIComponent(attr.name.replace('data-', '').toLowerCase()) + '=' + encodeURIComponent(attr.value);
-                });
-            }
-
-            /*
-            * Renders a single badge on the page
-            * @param badge: div element of badge to render
-            */
-            function renderBadge(badge : any) {
-                let size = badge.getAttribute('data-size'),
-                    locale = badge.getAttribute('data-locale'),
-                    type = badge.getAttribute('data-type'),
-                    theme = badge.getAttribute('data-theme'),
-                    vanity = badge.getAttribute('data-vanity'),
-                    version = badge.getAttribute('data-version'),
-                    isEI = badge.hasAttribute('data-ei'),
-                    entity = badge.getAttribute('data-entity'),
-                    isCreatePage = badge.hasAttribute('data-iscreate'),
-                    uid = Math.round(1000000 * Math.random()),
-                    baseUrl = generateUrl(isEI),
-                    queryParams = [
-                        'locale=' + encodeURIComponent(locale),
-                        'badgetype=' + encodeURIComponent(type),
-                        'badgetheme=' + encodeURIComponent(theme),
-                        'uid=' + encodeURIComponent(uid),
-                        'version=' + encodeURIComponent(version)
-                    ],
-                    url;
-
-                if (version === 'v2') {
-                    baseUrl += 'view';
-                    queryParams.push('badgesize=' + encodeURIComponent(size));
-                    queryParams.push('entity=' + encodeURIComponent(entity));
-                    queryParams = queryParams.concat(getBadgeKeyQueryParams(badge));
-                } else {
-                    baseUrl += 'profile';
-                    queryParams.push('maxsize=' + encodeURIComponent(size));
-                    queryParams.push('trk=' + encodeURIComponent(TRACKING_PARAM));
-                    queryParams.push('vanityname=' + encodeURIComponent(vanity));
-                }
-
-                if (isCreatePage) {
-                    queryParams.push('fromCreate=true');
-                }
-
-                url = baseUrl + '?' + queryParams.join('&');
-                badge.setAttribute('data-uid' , uid);
-                jsonp(url); //Calls responseHandler when done
-            }
-
-            /**
-             * Handles a response from the server. Finds badge matching badgeUid and inserts badgeHtml there
-             * @param badgeHtml: String representing contents of the badge
-             * @param badgeUid: UID of the badge to target
-             **/
-            function responseHandler(badgeHtml : any, badgeUid : any) {
-                responsesReceived ++;
-
-                let i, badge, uid, isCreate;
-                const defaultWidth = 330; // max possible width
-                const defaultHeight = 300; // max possible height
-
-                for (i = 0, len = badges.length; i < len; i++) {
-                    badge = badges[i];
-                    // isCreate needed to prevent reloading artdeco script tag
-                    isCreate = badge.getAttribute('data-iscreate');
-                    uid   = parseInt(badge.getAttribute('data-uid'), 10);
-                    if (uid === badgeUid) {
-                        const badgeMarkup = `<body>${badgeHtml}</body>`;
-                        const iframe : any = document.createElement('iframe');
-                        iframe.onload = function() {
-                            const iframeBody = iframe.contentWindow.document.body;
-                            // 5 px buffer to avoid the badge border being cut off.
-                            iframe.setAttribute('height', ((iframeBody.scrollHeight) || (defaultHeight)) + 5);
-                            iframe.setAttribute('width', ((iframeBody.scrollWidth) || (defaultWidth)) + 5);
-                        };
-                        iframe.setAttribute('frameBorder', '0');
-                        iframe.style.display = 'block';
-                        badge.appendChild(iframe);
-                        iframe.contentWindow.document.open();
-                        iframe.contentWindow.document.write(badgeMarkup);
-                        iframe.contentWindow.document.close();
-                        replaceScriptTags(badge, isCreate);
-                    }
-                }
-                tryClean();
-            }
-
-            // These functions are needed because badge markup is added via innerHtml property which does not run script tags
-            function replaceScriptTags(node : any, isCreate : any) {
-                if (shouldReplaceNode(node, isCreate)) {
-                    node.parentNode.replaceChild(cloneScriptNode(node), node);
-                    childScripts[node.src] = true;
-                } else {
-                    let i = 0,
-                        children = node.childNodes;
-                    while (i < children.length) {
-                        replaceScriptTags(children[i++], isCreate);
-                    }
-                }
-                return node;
-            }
-
-            function shouldReplaceNode(node : any, isCreate : any) {
-                return isScriptNode(node) && !childScripts[node.src] && (!isCreate || (isCreate && !node.getAttribute('data-isartdeco')));
-            }
-
-            function isScriptNode(node : any) {
-                return node.tagName === 'SCRIPT';
-            }
-
-            function cloneScriptNode(node : any){
-                const script = document.createElement("script");
-                for(let i = node.attributes.length-1; i >= 0; i-- ) {
-                    script.setAttribute( node.attributes[i].name, node.attributes[i].value );
-                }
-                return script;
-            }
-
-            // Gets all incoming responses
-            window[CALLBACK_NAME] = responseHandler;
-
-            /**
-             * Tries to clean added tags
-             **/
-            function tryClean() {
-                //Clean up after all requests are done..
-                //Accounts for people including script more than once
-                const done = (responsesReceived >= expectedResponses && expectedResponses > 0) || responsesReceived >= badges.length;
-                if (done) {
-                    delete window[CALLBACK_NAME];
-
-                    // remove all script tags
-                    scripts.map(function(script){
-                        document.body.removeChild(script);
-                    });
-
-                }
-            }
-
-            /*
-            * Makes Jsonp request, responses handles by CALLBACK_NAME
-            * @param url String: url of server to make request to
-            */
-            function jsonp(url : string) {
-                const script = document.createElement('script');
-                script.src = url;
-                scripts.push(script);
-                document.body.appendChild(script);
-            }
-        };
-
-        if (document.readyState === 'complete') {
-            window.LIRenderAll();
-        } else {
-            window.addEventListener('load', window.LIRenderAll, false);
+            default: break;
         }
+    }
 
-    })(window);
+    const copyToClipboard = (text:string) => {
+        navigator.clipboard.writeText(text);
+        setCopied(true)
+    }
+
     return (
         <div>
-            <h1>Who am I ?</h1>
-            <div className="main-info">
-                <div className="badge-base LI-profile-badge" data-locale="fr_FR" data-size="medium" data-theme="light"
-                     data-vanity="quentin-desbrousses" data-version="v1"><a
-                    className="badge-base__link LI-simple-link"
-                    href="https://fr.linkedin.com/in/quentin-desbrousses?trk=profile-badge">Quentin Desbrousses</a>
+            <div className="flex flex-col justify-start">
+                <div>
+                    <h1 className="text-2xl lg:text-4xl hover:text-tertiary hover:cursor-pointer active:translate-x-2 active:duration-100" onClick={(e)=>{handleDropdown('presentation')}}>Quick presentation</h1>
+                    <div className={openPresentation ? 'block h-full duration-150 all ease-in-out' : 'hidden duration-150 all ease-in-out'}>
+                        <div className="mt-12 mb-12 flex flex-col lg:flex-row justify-center gap-12 items-center h-full xl:text-lg text-sm">
+                            <div className="flex flex-col justify-evenly order-2 lg:order-1 items-center gap-6 lg:gap-24 w-11/12 lg:w-1/3 text-primary">
+                                <div className="flex flex-col justify-start w-full p-5 border-2 border-tertiary shadow-3xl rounded-lg text-primary bg-white">
+                                    <h2 className="text-2xl text-tertiary text-center">23 years old</h2>
+                                    <p>born on the 28th April of 1999 in Poitiers</p>
+                                </div>
+                                <div className="flex flex-col  w-full gap-2 p-5 border-2 border-tertiary shadow-3xl rounded-lg text-primary bg-white">
+                                    <h2 className="text-2xl text-tertiary text-center">How to contact ?</h2>
+                                    <div className="flex justify-start items-center gap-6">
+                                        <img className="max-h-8" src="assets/img/mobile.png"/>
+                                        <div className="flex whitespace-nowrap gap-2">
+                                            <p className="hover:cursor-pointer hover:text-tertiary active:text-primary" onClick={(e)=>copyToClipboard('+33649254431')}>+33 6 49 25 44 31</p>
+                                            <div className={copied ? "text-tertiary flex justify-between gap-2 items-center" : "hidden"}>
+                                                <BsCheck></BsCheck>
+                                                <p className="text-tertiary">Copied !</p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div className="flex justify-start items-center gap-6">
+                                        <img className="max-h-8" src="assets/img/gmail.png"/>
+                                        <a className="no-underline hover:text-tertiary" href="mailto:qdesbrousses.pro@gmail.com"><p>qdesbrousses.pro@gmail.com</p></a>
+                                    </div>
+                                    <div className="flex justify-start items-center gap-6">
+                                        <img className="max-h-8" src="assets/img/linkedin.png"/>
+                                        <a className="no-underline hover:text-tertiary" href="https://www.linkedin.com/in/quentin-desbrousses/?locale=en_US" target="_blank"><p>quentin-desbrousses</p></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="flex flex-col gap-12 justify-between order-1 lg:order-2 w-11/12 lg:w-1/3 items-center">
+                                <div className="w-full p-5 rounded-lg text-primary">
+                                    <h2 className="xl:text-4xl text-2xl text-tertiary text-center lg:whitespace-nowrap">Quentin DESBROUSSES</h2>
+                                    <div className="flex justify-center items-center whitespace-nowrap gap-4">
+                                        <p className="text-xl xl:text-2xl text-center">FRENCH ENGINEER</p>
+                                        <img className="lg:max-h-6 max-h-4" src="assets/img/french-flag.png"/>
+                                    </div>
+                                </div>
+                                <div>
+                                    <img className="max-h-96 pt-10 rounded-lg bg-imagebg shadow-4xl" src="assets/img/profile.png"/>
+                                </div>
+                                <div className="w-full flex flex-col gap-6 p-5 border-2 border-tertiary shadow-3xl rounded-lg text-primary bg-white w-full">
+                                    <h2 className="text-2xl flex-wrap text-tertiary text-center">Any speciality ?</h2>
+                                    <div className="flex justify-center items-center gap-6">
+                                        <BsFillBrushFill />
+                                        <p className="text-center">UX/UI DESIGNER</p>
+                                    </div>
+                                    <div className="flex justify-center items-center gap-6">
+                                        <BsCodeSquare />
+                                        <p className="text-center">FRONTEND WEB DEVELOPER</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="flex flex-col gap-12 justify-between order-3 lg:order-3 w-11/12 lg:w-1/3 items-center">
+                                <div className="w-full flex flex-col p-5 border-2 border-tertiary shadow-3xl rounded-lg text-primary bg-white">
+                                    <h2 className="text-2xl text-tertiary text-center">What about me ?</h2>
+                                    <p>As far as I can remember, I have always been interested by new technologies and how we can use them to make our life better. That is why working in computer science engineering was an obvious choice for me. I am proud to be part of the tomorrow's solutions.</p>
+                                    <br/>
+                                    <p>During some internships and projects, I developed a passion for the user experience and the frontend development. Now I am trying to get the more experience that I can in those fields to improve myself and then the world !</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr/>
+                <div>
+                    <h1 className="text-2xl lg:text-4xl hover:text-tertiary hover:cursor-pointer active:translate-x-2 active:duration-100" onClick={(e)=>{handleDropdown('studies')}}>Soft Skills</h1>
+                    <div className={openSoftSkills ? 'block' : 'hidden'}>
+                        <p className="text-lg">Soft Skills</p>
+                    </div>
+                </div>
+                <hr/>
+                <div>
+                    <h1 className="text-2xl lg:text-4xl hover:text-tertiary hover:cursor-pointer active:translate-x-2 active:duration-100" onClick={(e)=>{handleDropdown('interests')}}>Interests</h1>
+                    <div className={openInterests ? 'block' : 'hidden'}>
+                        <p className="text-lg">Interests</p>
+                    </div>
                 </div>
             </div>
-            <div className="education"></div>
-            <div className="interests"></div>
+
         </div>
     );
 };

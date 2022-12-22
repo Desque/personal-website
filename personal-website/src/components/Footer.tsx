@@ -6,7 +6,7 @@ const Footer = () => {
         <div className="flex justify-evenly w-full h-100 pt-10 pb-10 bg-primary text-secondary text-sm lg:text-lg">
             <div className="text-center">
                 <h2 className="lg:text-2xl text-lg mb-2">Credits</h2>
-                <p>by Quentin Desbrousses</p>
+                <p>Copyright © Quentin Desbrousses</p>
                 <p>deployed in January 2023</p>
             </div>
             <div className="text-center">
