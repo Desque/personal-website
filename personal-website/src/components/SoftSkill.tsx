@@ -9,7 +9,7 @@ interface SoktSkillProps {
 
 const SoftSkill = (props : SoktSkillProps) => {
     return (
-        <div className="flex md:flex-row flex-col justify-start items-center gap-12 p-12 w-full bg-white border-2 border-tertiary rounded-lg text-primary">
+        <div className="flex md:flex-row flex-col justify-start items-center gap-12 p-12 w-full bg-secondary bg-opacity-70 hover:scale-105 hover:duration-150 hover:bg-opacity-80 border-2 border-tertiary rounded-lg text-primary">
             <div>
                 <img className="max-h-32" src={props.imgUrl}/>
             </div>
