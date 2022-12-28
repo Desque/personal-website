@@ -25,11 +25,20 @@ module.exports = {
       '5xl': '3.052rem',
       },
     colors: {
-      'primary':'#35495E',
+      'primary':'#333C42',
       'secondary':'#EEEEEE',
       'tertiary':'#8c52ff',
-      'imagebg':'#D3D0E3',
-      'white':'#ffffff'
+      'dark-primary':'#353745',
+      'dark-secondary':'#A4A9CE',
+      'dark-tertiary':'#00C6C1',
+      'imagebg':'#FFB352',
+      'white':'#ffffff',
+      'purple':'#8c52ff',
+      'blue':'#008CFF',
+      'info':'#008CFF',
+      'success':'#02CE4D',
+      'warning':'#F9F871',
+      'fail':'#F97171'
     },
     extend: {
       boxShadow: {

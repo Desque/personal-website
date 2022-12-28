@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {BsCheck, BsCodeSquare, BsFillBrushFill} from "react-icons/bs";
+import SoftSkill from "../components/SoftSkill";
 
 const Biography = () => {
 
@@ -36,7 +37,7 @@ const Biography = () => {
             <div className="flex flex-col justify-start">
                 <div>
                     <h1 className="text-2xl lg:text-4xl hover:text-tertiary hover:cursor-pointer active:translate-x-2 active:duration-100" onClick={(e)=>{handleDropdown('presentation')}}>Quick presentation</h1>
-                    <div className={openPresentation ? 'block h-full duration-150 all ease-in-out' : 'hidden duration-150 all ease-in-out'}>
+                    <div className={openPresentation ? 'block h-full' : 'hidden'}>
                         <div className="mt-12 mb-12 flex flex-col lg:flex-row justify-center gap-12 items-center h-full xl:text-lg text-sm">
                             <div className="flex flex-col justify-evenly order-2 lg:order-1 items-center gap-6 lg:gap-24 w-11/12 lg:w-1/3 text-primary">
                                 <div className="flex flex-col justify-start w-full p-5 border-2 border-tertiary shadow-3xl rounded-lg text-primary bg-white">
@@ -49,9 +50,9 @@ const Biography = () => {
                                         <img className="max-h-8" src="assets/img/mobile.png"/>
                                         <div className="flex whitespace-nowrap gap-2">
                                             <p className="hover:cursor-pointer hover:text-tertiary active:text-primary" onClick={(e)=>copyToClipboard('+33649254431')}>+33 6 49 25 44 31</p>
-                                            <div className={copied ? "text-tertiary flex justify-between gap-2 items-center" : "hidden"}>
+                                            <div className={copied ? "text-success outline-success flex justify-between gap-2 items-center" : "hidden"}>
                                                 <BsCheck></BsCheck>
-                                                <p className="text-tertiary">Copied !</p>
+                                                <p className="text-success">Copied !</p>
                                             </div>
                                         </div>
 
@@ -103,8 +104,25 @@ const Biography = () => {
                 <hr/>
                 <div>
                     <h1 className="text-2xl lg:text-4xl hover:text-tertiary hover:cursor-pointer active:translate-x-2 active:duration-100" onClick={(e)=>{handleDropdown('studies')}}>Soft Skills</h1>
-                    <div className={openSoftSkills ? 'block' : 'hidden'}>
-                        <p className="text-lg">Soft Skills</p>
+                    <div className={openSoftSkills ? 'block h-full' : 'hidden'}>
+                        <div className="mt-12 mb-12 flex flex-col justify-center gap-12 items-center h-full xl:text-lg text-sm">
+                            <SoftSkill title={"Creativity"}
+                                       description={"When a problem happen, I always try to look at it by different angles to find a solution even if I have to rethink the whole design. I try to not stay blocked by \"classical\" view of an issue."}
+                                       rateOverFive={4}
+                                       imgUrl={"assets/img/croissant.png"} />
+                            <SoftSkill title={"Creativity"}
+                                       description={"When a problem happen, I always try to look at it by different angles to find a solution even if I have to rethink the whole design. I try to not stay blocked by \"classical\" view of an issue."}
+                                       rateOverFive={4}
+                                       imgUrl={"assets/img/croissant.png"} />
+                            <SoftSkill title={"Creativity"}
+                                       description={"When a problem happen, I always try to look at it by different angles to find a solution even if I have to rethink the whole design. I try to not stay blocked by \"classical\" view of an issue."}
+                                       rateOverFive={4}
+                                       imgUrl={"assets/img/croissant.png"} />
+                            <SoftSkill title={"Creativity"}
+                                       description={"When a problem happen, I always try to look at it by different angles to find a solution even if I have to rethink the whole design. I try to not stay blocked by \"classical\" view of an issue."}
+                                       rateOverFive={4}
+                                       imgUrl={"assets/img/croissant.png"} />
+                        </div>
                     </div>
                 </div>
                 <hr/>

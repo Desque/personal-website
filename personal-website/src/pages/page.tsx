@@ -14,7 +14,7 @@ const Page = (props : PageComponent) => {
     return (
         <div className="m-0 w-full text-primary font-sans">
             <Header/>
-            <div className="min-h-screen lg:pt-6 pt-12 pb-20 bg-secondary">
+            <div className="min-h-screen lg:pt-6 pt-12 pb-20 bg-gradient">
                 <Navigation activePage={props.pageName}/>
                 <SearchBar/>
                 <div className="rounded-lg w-11/12 xl:p-6 m-auto">
