@@ -16,11 +16,11 @@ const App = () => {
     <BrowserRouter>
       <Routes>
           <Route path="*" element={<Page page={<Home />} pageName={'home'}/>} />
-          <Route path="/bio" element={<Page page={<Biography />} pageName={'biography'}/>} />
+          <Route path="/bio" element={<Page page={<Biography />} pageName={'bio'}/>} />
           <Route path="/description" element={<Page page={<Description />} pageName={'description'}/>} />
           <Route path="/studies" element={<Page page={<Studies />} pageName={'studies'}/>} />
           <Route path="/experiences" element={<Page page={<Experiences />} pageName={'experiences'}/>} />
-          <Route path="/hard-skills" element={<Page page={<HardSkills />} pageName={'hard-skills'}/>} />
+          <Route path="/hardskills" element={<Page page={<HardSkills />} pageName={'hardskills'}/>} />
           <Route path="/projects" element={<Page page={<Projects />} pageName={'projects'}/>} />
           <Route path="/searching" element={<Page page={<Searching />} pageName={'searching'}/>} />
           <Route path="/contact" element={<Page page={<Contact />} pageName={'contact'}/>} />

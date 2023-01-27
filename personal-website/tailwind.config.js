@@ -25,13 +25,18 @@ module.exports = {
       '5xl': '3.052rem',
       },
     colors: {
-      'primary':'#333C42',
-      'secondary':'#FAF8FF',
+      'primary':'#333C42ed',
+      'secondary':'#eaebec',
       'tertiary':'#8c52ff',
       'dark-primary':'#353745',
       'dark-secondary':'#A4A9CE',
       'dark-tertiary':'#00C6C1',
-      'imagebg':'#FFB352',
+      'bio':'#E18D59',
+      'hardskills':'#202f5a',
+      'experiences':'#c3012f',
+      'studies':'#019EE0',
+      'projects':'#51B455',
+      'orange':'#EBCC71',
       'white':'#ffffff',
       'purple':'#8c52ff',
       'blue':'#008CFF',
@@ -44,7 +49,21 @@ module.exports = {
       boxShadow: {
         '3xl': '0px 3px 8px rgba(0, 0, 0, 0.24)',
         '4xl': '0px 5px 15px rgba(0, 0, 0, 0.35)',
-      }
+      },
+      keyframes: {
+        wiggle: {
+          '0%, 100%': { transform: 'rotate(-9deg)' },
+          '50%': { transform: 'rotate(9deg)' },
+        }
+      },
+      animation: {
+        'wiggle': 'wiggle 2.5s linear infinite',
+      },
+    },
+    variants: {
+      extend: {
+        visibility: ["group-hover"],
+      },
     },
   },
   plugins: [],

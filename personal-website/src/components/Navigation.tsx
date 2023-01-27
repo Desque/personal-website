@@ -1,36 +1,76 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {NavLink} from "react-router-dom";
-import {
-    BsApp, BsArchive, BsArchiveFill,
-    BsFillCollectionFill,
-    BsFillPersonLinesFill,
-    BsPeopleFill,
-    BsSearch,
-    BsTerminalFill
-} from "react-icons/bs";
 
 interface NavigationProps {
     activePage : string
 }
 
+interface NavButtonProps {
+    activePage : string,
+    page : string,
+    title : string,
+}
+
+const navButtons = [
+    {
+        'page':'bio',
+        'title':'Identity',
+    },
+    {
+        'page':'studies',
+        'title':'Studies',
+    },
+    {
+        'page':'experiences',
+        'title':'Experiences',
+    },
+    {
+        'page':'hardskills',
+        'title':'Hard Skills',
+    },
+    {
+        'page':'projects',
+        'title':'Projects',
+    }
+]
+
 const MenuButtonStyle = (activePage : string, page : string) : string => {
     let globalStyle : string =
-        ' lg:text-2xl text-md hover:bg-opacity-80' +
-        ' rounded-lg flex flex-col justify-evenly items-center shadow-3xl' +
-        ' lg:m-6 sm:m-4 m-2' +
-        ' lg:w-48 sm:w-32 w-16 px-6 aspect-square '
-    let specificStyle = activePage === page ? 'text-secondary bg-tertiary' : 'text-primary bg-secondary bg-opacity-70 border-2 border-secondary hover:text-tertiary hover:border-tertiary hover:scale-125 hover:duration-200'
+        ' group lg:text-2xl text-md hover:bg-opacity-80 ' +
+        ' rounded-lg flex flex-col gap-2 items-center transition hover:-translate-y-6 hover:scale-150 hover:ease-in-out hover:duration-200'
+    let specificStyle = activePage === page ? 'text-secondary scale-150 bg-opacity-90' : 'text-primary bg-opacity-90 hover:text-tertiary hover:border-tertiary transition hover:-translate-y-6 hover:scale-150 hover:ease-in-out hover:duration-200'
     return specificStyle + globalStyle
 }
 
-const Navigation = (props : NavigationProps) => {
+const ImgButtonStyle = (activePage : string, page : string) : string => {
+    let globalStyle : string =
+        'rounded-full w-3/4 aspect-square overflow-hidden border-2 bg-secondary bg-opacity-80 shadow-3xl bg-'+page+' '
+    let specificStyle = activePage === page ? 'border-tertiary bg-opacity-100 ' : ' border-'+page+' transition hover:ease-in-out hover:border-tertiary hover:bg-opacity-100 hover:duration-200 '
+    return specificStyle + globalStyle
+}
+
+const NavButton = (props : NavButtonProps) => {
     return (
-        <div className="xl:m-16 lg:m-8 md:m-4 sm:m-2 w-100 flex justify-evenly flex-wrap">
-            <NavLink to="/bio" className={MenuButtonStyle(props.activePage,'biography')}><BsFillPersonLinesFill className="align-middle"/><p className="hidden sm:block whitespace-nowrap">Identity</p></NavLink>
-            <NavLink to="/studies" className={MenuButtonStyle(props.activePage,'studies')}><BsPeopleFill className="align-middle"/><p className="hidden sm:block whitespace-nowrap">Studies</p></NavLink>
-            <NavLink to="/experiences" className={MenuButtonStyle(props.activePage,'experiences')}><BsArchiveFill className="align-middle"/><p className="hidden sm:block whitespace-nowrap">Experiences</p></NavLink>
-            <NavLink to="/hard-skills" className={MenuButtonStyle(props.activePage,'hard-skills')}><BsTerminalFill className="align-middle"/><p className="hidden sm:block whitespace-nowrap">Hard Skills</p></NavLink>
-            <NavLink to="/projects" className={MenuButtonStyle(props.activePage,'projects')}><BsFillCollectionFill className="align-middle"/><p className="hidden sm:block whitespace-nowrap">Projects</p></NavLink>
+        <NavLink to={'/'+props.page} className={MenuButtonStyle(props.activePage,props.page)}>
+            <div className={ImgButtonStyle(props.activePage,props.page)}>
+                <img src={'assets/img/'+props.page+'.png'} className="w-16 scale-125" alt={props.page+' photo'}/>
+            </div>
+            <p className={"text-sm whitespace-nowrap absolute font-bold top-12 invisible group-hover:visible text-"+props.page}>{props.title}</p>
+        </NavLink>
+    )
+}
+
+const Navigation = (props : NavigationProps) => {
+
+    return (
+        <div className="flex justify-center">
+            <div className="ml-6 mr-6 p-0 w-fit py-6 px-3 rounded-full shadow-3xl transition ease-in-out backdrop-blur-xl">
+                <div className="flex justify-center gap-4 ">
+                    {navButtons.map((value, index) => {
+                        return <NavButton activePage={props.activePage} page={value.page} title={value.title}/>
+                    })}
+                </div>
+            </div>
         </div>
     );
 };
