@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   important: true,
+  mode: 'jit',
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
@@ -36,14 +37,7 @@ module.exports = {
       'experiences':'#c3012f',
       'studies':'#019EE0',
       'projects':'#51B455',
-      'orange':'#EBCC71',
-      'white':'#ffffff',
-      'purple':'#8c52ff',
-      'blue':'#008CFF',
-      'info':'#008CFF',
-      'success':'#02CE4D',
-      'warning':'#F9F871',
-      'fail':'#F97171'
+
     },
     extend: {
       boxShadow: {

@@ -4,7 +4,34 @@ import SoftSkill from "../components/SoftSkill";
 
 const Biography = () => {
 
-    const [openPresentation,setOpenPresentation] = useState(false);
+    const softskills = [
+        {
+            title:"Creativity",
+            description:"When a problem happen, I always try to look at it by different angles to find a solution even if I have to rethink the whole design. I try to not stay blocked by \"classical\" view of an issue.",
+            rateOverFive:4,
+            imgUrl:"assets/img/croissant.png"
+        },
+        {
+            title:"Creativity",
+            description:"When a problem happen, I always try to look at it by different angles to find a solution even if I have to rethink the whole design. I try to not stay blocked by \"classical\" view of an issue.",
+            rateOverFive:4,
+            imgUrl:"assets/img/croissant.png"
+        },
+        {
+            title:"Creativity",
+            description:"When a problem happen, I always try to look at it by different angles to find a solution even if I have to rethink the whole design. I try to not stay blocked by \"classical\" view of an issue.",
+            rateOverFive:4,
+            imgUrl:"assets/img/croissant.png"
+        },
+        {
+            title:"Creativity",
+            description:"When a problem happen, I always try to look at it by different angles to find a solution even if I have to rethink the whole design. I try to not stay blocked by \"classical\" view of an issue.",
+            rateOverFive:4,
+            imgUrl:"assets/img/croissant.png"
+        },
+    ]
+
+    const [openPresentation,setOpenPresentation] = useState(true);
     const [openSoftSkills,setOpenSoftSkills] = useState(false);
     const [openInterests,setOpenInterests] = useState(false);
     const [copied,setCopied] = useState(false);
@@ -33,19 +60,19 @@ const Biography = () => {
     }
 
     return (
-        <div>
+        <div className="p-2 text-bio">
             <div className="flex flex-col justify-start">
                 <div>
-                    <h1 className="text-2xl lg:text-4xl hover:text-tertiary hover:cursor-pointer active:translate-x-2 active:duration-100" onClick={(e)=>{handleDropdown('presentation')}}>Quick presentation</h1>
+                    <h1 className="text-3xl font-bold lg:text-4xl hover:text-tertiary hover:cursor-pointer active:translate-x-2 active:duration-100" onClick={(e)=>{handleDropdown('presentation')}}>Quick presentation</h1>
                     <div className={openPresentation ? 'block h-full' : 'hidden'}>
                         <div className="mt-12 mb-12 flex flex-col lg:flex-row justify-center gap-12 items-center h-full xl:text-lg text-sm">
                             <div className="flex flex-col justify-evenly order-2 lg:order-1 items-center gap-6 lg:gap-24 w-11/12 lg:w-1/3 text-primary">
-                                <div className="flex flex-col justify-start w-full p-5 border-2 border-tertiary shadow-3xl rounded-lg text-primary bg-secondary  bg-opacity-70 hover:scale-105 hover:duration-150 hover:bg-opacity-80">
-                                    <h2 className="text-2xl text-tertiary text-center">23 years old</h2>
+                                <div className="flex flex-col justify-start w-full p-5 border-2 border-bio shadow-3xl rounded-lg text-primary bg-secondary  bg-opacity-70 hover:scale-105 hover:duration-150 hover:bg-opacity-80">
+                                    <h2 className="text-2xl text-bio text-center">23 years old</h2>
                                     <p>born on the 28th April of 1999 in Poitiers</p>
                                 </div>
-                                <div className="flex flex-col  w-full gap-2 p-5 border-2 border-tertiary shadow-3xl rounded-lg text-primary bg-secondary  bg-opacity-70 hover:scale-105 hover:duration-150 hover:bg-opacity-80">
-                                    <h2 className="text-2xl text-tertiary text-center">How to contact ?</h2>
+                                <div className="flex flex-col  w-full gap-2 p-5 border-2 border-bio shadow-3xl rounded-lg text-primary bg-secondary  bg-opacity-70 hover:scale-105 hover:duration-150 hover:bg-opacity-80">
+                                    <h2 className="text-2xl text-bio text-center">How to contact ?</h2>
                                     <div className="flex justify-start items-center gap-6">
                                         <img className="max-h-8" src="assets/img/mobile.png"/>
                                         <div className="flex whitespace-nowrap gap-2">
@@ -69,17 +96,17 @@ const Biography = () => {
                             </div>
                             <div className="flex flex-col gap-12 justify-between order-1 lg:order-2 w-11/12 lg:w-1/3 items-center">
                                 <div className="w-full p-5 rounded-lg text-primary">
-                                    <h2 className="xl:text-4xl text-2xl text-tertiary text-center lg:whitespace-nowrap">Quentin DESBROUSSES</h2>
+                                    <h2 className="xl:text-4xl text-2xl text-bio text-center lg:whitespace-nowrap">Quentin DESBROUSSES</h2>
                                     <div className="flex justify-center items-center whitespace-nowrap gap-4">
                                         <p className="text-xl xl:text-2xl text-center">FRENCH ENGINEER</p>
                                         <img className="lg:max-h-6 max-h-4" src="assets/img/french-flag.png"/>
                                     </div>
                                 </div>
                                 <div className="animate-wiggle">
-                                    <img className="max-h-96 pt-10 rounded-lg bg-orange shadow-4xl" src="assets/img/bio.png"/>
+                                    <img className="max-h-96 pt-10 rounded-lg bg-bio shadow-4xl" src="assets/img/bio.png"/>
                                 </div>
-                                <div className="w-full flex flex-col gap-6 p-5 border-2 border-tertiary shadow-3xl rounded-lg text-primary bg-secondary bg-opacity-70 hover:scale-105 hover:duration-150 hover:bg-opacity-80 w-full">
-                                    <h2 className="text-2xl flex-wrap text-tertiary text-center">Any speciality ?</h2>
+                                <div className="w-full flex flex-col gap-6 p-5 border-2 border-bio shadow-3xl rounded-lg text-primary bg-secondary bg-opacity-70 hover:scale-105 hover:duration-150 hover:bg-opacity-80 w-full">
+                                    <h2 className="text-2xl flex-wrap text-bio text-center">Any speciality ?</h2>
                                     <div className="flex justify-center items-center gap-6">
                                         <BsFillBrushFill />
                                         <p className="text-center">UX/UI DESIGNER</p>
@@ -91,8 +118,8 @@ const Biography = () => {
                                 </div>
                             </div>
                             <div className="flex flex-col gap-12 justify-between order-3 lg:order-3 w-11/12 lg:w-1/3 items-center">
-                                <div className="w-full flex flex-col p-5 border-2 border-tertiary shadow-3xl rounded-lg text-primary bg-secondary bg-opacity-70 hover:scale-105 hover:duration-150 hover:bg-opacity-80">
-                                    <h2 className="text-2xl text-tertiary text-center">What about me ?</h2>
+                                <div className="w-full flex flex-col p-5 border-2 border-bio shadow-3xl rounded-lg text-primary bg-secondary bg-opacity-70 hover:scale-105 hover:duration-150 hover:bg-opacity-80">
+                                    <h2 className="text-2xl text-bio text-center">What about me ?</h2>
                                     <p>As far as I can remember, I have always been interested by new technologies and how we can use them to make our life better. That is why working in computer science engineering was an obvious choice for me. I am proud to be part of the tomorrow's solutions.</p>
                                     <br/>
                                     <p>During some internships and projects, I developed a passion for the user experience and the frontend development. Now I am trying to get the more experience that I can in those fields to improve myself and then the world !</p>
@@ -103,31 +130,21 @@ const Biography = () => {
                 </div>
                 <hr/>
                 <div>
-                    <h1 className="text-2xl lg:text-4xl hover:text-tertiary hover:cursor-pointer active:translate-x-2 active:duration-100" onClick={(e)=>{handleDropdown('studies')}}>Soft Skills</h1>
-                    <div className={openSoftSkills ? 'block h-full' : 'hidden'}>
-                        <div className="mt-12 mb-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-12 items-center xl:text-lg text-sm">
-                            <SoftSkill title={"Creativity"}
-                                       description={"When a problem happen, I always try to look at it by different angles to find a solution even if I have to rethink the whole design. I try to not stay blocked by \"classical\" view of an issue."}
-                                       rateOverFive={4}
-                                       imgUrl={"assets/img/croissant.png"} />
-                            <SoftSkill title={"Creativity"}
-                                       description={"When a problem happen, I always try to look at it by different angles to find a solution even if I have to rethink the whole design. I try to not stay blocked by \"classical\" view of an issue."}
-                                       rateOverFive={4}
-                                       imgUrl={"assets/img/croissant.png"} />
-                            <SoftSkill title={"Creativity"}
-                                       description={"When a problem happen, I always try to look at it by different angles to find a solution even if I have to rethink the whole design. I try to not stay blocked by \"classical\" view of an issue."}
-                                       rateOverFive={4}
-                                       imgUrl={"assets/img/croissant.png"} />
-                            <SoftSkill title={"Creativity"}
-                                       description={"When a problem happen, I always try to look at it by different angles to find a solution even if I have to rethink the whole design. I try to not stay blocked by \"classical\" view of an issue."}
-                                       rateOverFive={4}
-                                       imgUrl={"assets/img/croissant.png"} />
+                    <h1 className="text-3xl font-bold lg:text-4xl hover:text-tertiary hover:cursor-pointer active:translate-x-2 active:duration-100" onClick={(e)=>{handleDropdown('studies')}}>Soft Skills</h1>
+                    <div className={openSoftSkills ? 'block' : 'hidden'}>
+                        <div className="flex gap-12 p-6">
+                            {softskills.map((value, index) => {
+                                return <SoftSkill title={value.title}
+                                                  description={value.description}
+                                                  rateOverFive={value.rateOverFive}
+                                                  imgUrl={value.imgUrl} />
+                            })}
                         </div>
                     </div>
                 </div>
                 <hr/>
                 <div>
-                    <h1 className="text-2xl lg:text-4xl hover:text-tertiary hover:cursor-pointer active:translate-x-2 active:duration-100" onClick={(e)=>{handleDropdown('interests')}}>Interests</h1>
+                    <h1 className="text-3xl font-bold lg:text-4xl hover:text-tertiary hover:cursor-pointer active:translate-x-2 active:duration-100" onClick={(e)=>{handleDropdown('interests')}}>Interests</h1>
                     <div className={openInterests ? 'block' : 'hidden'}>
                         <p className="text-lg">Interests</p>
                     </div>
