@@ -10,120 +10,41 @@
 $font-1 : "Raleway", sans-serif;
 $font-2 : "Exo", sans-serif;
 
-$font-size-1 : 2.5rem;
-$font-size-2 : 1.5rem;
-$font-size-3 : 1rem;
-$font-size-pad-1 : 2rem;
-$font-size-pad-2 : 1rem;
-$font-size-pad-3 : 1rem;
-$font-size-mobile-1 : 1.5rem;
-$font-size-mobile-2 : 1rem;
-$font-size-mobile-3 : 1rem;
-
 // Colors
-$primary-color : #35495E;
-$secondary-color : #EEEEEE;
-$tertiary-color : #8c52ff;
 
 //Breakpoints to make the app responsive
-$breakpoints: (
-  mobile : 599px,
-  pad : 1279px,
-);
 
 // Mixins
-@mixin renderFlex($direction : row,$alignement : center,$justify : space-between,$gap : unset,$wrap : wrap) {
-  display: flex;
-  flex-wrap: $wrap;
-  width: 100%;
-  flex-direction: $direction;
-  gap: $gap;
-  align-items: $alignement;
-  justify-content: $justify;
-}
-@mixin renderAbsolute($top,$right,$bottom,$left) {
-  position: absolute;
-  top: $top;
-  right: $right;
-  bottom: $bottom;
-  left: $left;
-}
-@mixin mobile-only {
-  @media screen and (max-width: map-get($breakpoints, mobile)){
-    @content;
-  }
-}
-@mixin mobile-pad {
-  @media screen and (max-width: map-get($breakpoints, pad)){
-    @content;
-  }
-}
 
 //Placeholders
-%vertical-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
 }
 
-//global style
+*::-webkit-scrollbar-track {
+  background: #eaebec;
+  border-radius:20px;
+  border: 1px solid #8c52ffaa;
+}
 
-.primary-link {
-  color: $primary-color;
+*::-webkit-scrollbar-thumb {
+  background-color: #8c52ffbb;
+  border-radius: 20px;
+  width: 5px;
+  height: 5px;
 }
-.primary-link:hover {
-  color: $tertiary_color;
+
+*::-webkit-scrollbar:hover {
+  width: 10px;
+  height: 10px;
 }
-.secondary-link {
-  color: $secondary-color;
-}
-.secondary-link:hover {
-  color: $tertiary_color;
-}
-.color-1 {
-  color: $primary-color !important;
-}
-.bc-1 {
-  background-color: $primary-color !important;
-}
-.color-2 {
-  color: $secondary-color !important;
-}
-.bc-2 {
-  background-color: $secondary-color !important;
-}
-.color-3 {
-  color: $tertiary-color !important;
-}
-.bc-3 {
-  background-color: $tertiary-color !important;
-}
-.h1-font-size {
-  font-size: $font-size-1;
-  @include mobile-pad {
-    font-size: $font-size-pad-1;
-  }
-  @include mobile-only {
-    font-size: $font-size-mobile-1;
-  }
-}
-.h2-font-size {
-  font-size: $font-size-2;
-  @include mobile-pad {
-    font-size: $font-size-pad-2;
-  }
-  @include mobile-only {
-    font-size: $font-size-mobile-2;
-  }
-}
-.p-font-size {
-  font-size: $font-size-3;
-  @include mobile-pad {
-    font-size: $font-size-pad-3;
-  }
-  @include mobile-only {
-    font-size: $font-size-mobile-3;
-  }
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #8c52ffff;
+  cursor: grab;
 }
 
 

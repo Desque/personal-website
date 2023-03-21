@@ -13,6 +13,30 @@ const Biography = () => {
         },
         {
             title:"Creativity",
+            description:"When a problem happens.",
+            rateOverFive:4,
+            imgUrl:"assets/img/croissant.png"
+        },
+        {
+            title:"Creativity",
+            description:"When a problem happen, I always try to look at it by different angles to find a solution even if I have to rethink the whole design. I try to not stay blocked by \"classical\" view of an issue.",
+            rateOverFive:4,
+            imgUrl:"assets/img/croissant.png"
+        },
+        {
+            title:"Creativity",
+            description:"When a problem happen, I always try to look at it by different angles to find a solution even if I have to rethink the whole design. I try to not stay blocked by \"classical\" view of an issue.",
+            rateOverFive:4,
+            imgUrl:"assets/img/croissant.png"
+        },
+        {
+            title:"Creativity",
+            description:"When a problem happen, I always try to look at it by different angles to find a solution even if I have to rethink the whole design. I try to not stay blocked by \"classical\" view of an issue.",
+            rateOverFive:4,
+            imgUrl:"assets/img/croissant.png"
+        },
+        {
+            title:"Creativity",
             description:"When a problem happen, I always try to look at it by different angles to find a solution even if I have to rethink the whole design. I try to not stay blocked by \"classical\" view of an issue.",
             rateOverFive:4,
             imgUrl:"assets/img/croissant.png"
@@ -32,8 +56,8 @@ const Biography = () => {
     ]
 
     const [openPresentation,setOpenPresentation] = useState(true);
-    const [openSoftSkills,setOpenSoftSkills] = useState(false);
-    const [openInterests,setOpenInterests] = useState(false);
+    const [openSoftSkills,setOpenSoftSkills] = useState(true);
+    const [openInterests,setOpenInterests] = useState(true);
     const [copied,setCopied] = useState(false);
 
     const handleDropdown = (type:string) => {
@@ -61,8 +85,10 @@ const Biography = () => {
 
     return (
         <div className="p-2 text-bio">
-            <div className="flex flex-col justify-start">
-                <div>
+            <div className="flex flex-col justify-start gap-12">
+
+
+                <div className="bg-secondary bg-opacity-80 rounded-lg border-2 border-bio p-6 shadow-3xl">
                     <h1 className="text-3xl font-bold lg:text-4xl hover:text-tertiary hover:cursor-pointer active:translate-x-2 active:duration-100" onClick={(e)=>{handleDropdown('presentation')}}>Quick presentation</h1>
                     <div className={openPresentation ? 'block h-full' : 'hidden'}>
                         <div className="mt-12 mb-12 flex flex-col lg:flex-row justify-center gap-12 items-center h-full xl:text-lg text-sm">
@@ -77,7 +103,7 @@ const Biography = () => {
                                         <img className="max-h-8" src="assets/img/mobile.png"/>
                                         <div className="flex whitespace-nowrap gap-2">
                                             <p className="hover:cursor-pointer hover:text-tertiary active:text-primary" onClick={(e)=>copyToClipboard('+33649254431')}>+33 6 49 25 44 31</p>
-                                            <div className={copied ? "text-success outline-success flex justify-between gap-2 items-center" : "hidden"}>
+                                            <div className={copied ? "text-bio outline-success flex justify-between gap-2 items-center" : "hidden"}>
                                                 <BsCheck></BsCheck>
                                                 <p className="text-success">Copied !</p>
                                             </div>
@@ -102,8 +128,8 @@ const Biography = () => {
                                         <img className="lg:max-h-6 max-h-4" src="assets/img/french-flag.png"/>
                                     </div>
                                 </div>
-                                <div className="animate-wiggle">
-                                    <img className="max-h-96 pt-10 rounded-lg bg-bio shadow-4xl" src="assets/img/bio.png"/>
+                                <div className="hover:animate-wiggle hover:cursor-pointer">
+                                    <img className="max-h-96 rounded-full p-2 bg-bio aspect-square bg-bio shadow-4xl" src="assets/img/profile.png" alt="Photo of Quentin Desbrousses"/>
                                 </div>
                                 <div className="w-full flex flex-col gap-6 p-5 border-2 border-bio shadow-3xl rounded-lg text-primary bg-secondary bg-opacity-70 hover:scale-105 hover:duration-150 hover:bg-opacity-80 w-full">
                                     <h2 className="text-2xl flex-wrap text-bio text-center">Any speciality ?</h2>
@@ -128,11 +154,12 @@ const Biography = () => {
                         </div>
                     </div>
                 </div>
-                <hr/>
-                <div>
+
+
+                <div className="bg-secondary rounded-lg border-2 border-bio bg-opacity-80 p-6 shadow-3xl">
                     <h1 className="text-3xl font-bold lg:text-4xl hover:text-tertiary hover:cursor-pointer active:translate-x-2 active:duration-100" onClick={(e)=>{handleDropdown('studies')}}>Soft Skills</h1>
-                    <div className={openSoftSkills ? 'block' : 'hidden'}>
-                        <div className="flex gap-12 p-6">
+                    <div className={openSoftSkills ? 'block flex-col justify-center' : 'hidden'}>
+                        <div className="flex align-items gap-12 overflow-x-auto snap-proximity scroll-pl-100 snap-x p-12">
                             {softskills.map((value, index) => {
                                 return <SoftSkill title={value.title}
                                                   description={value.description}
@@ -142,8 +169,9 @@ const Biography = () => {
                         </div>
                     </div>
                 </div>
-                <hr/>
-                <div>
+
+
+                <div className="bg-secondary rounded-lg border-2 border-bio bg-opacity-80 p-6 shadow-3xl">
                     <h1 className="text-3xl font-bold lg:text-4xl hover:text-tertiary hover:cursor-pointer active:translate-x-2 active:duration-100" onClick={(e)=>{handleDropdown('interests')}}>Interests</h1>
                     <div className={openInterests ? 'block' : 'hidden'}>
                         <p className="text-lg">Interests</p>

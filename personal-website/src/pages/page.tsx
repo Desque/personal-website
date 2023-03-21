@@ -9,11 +9,11 @@ interface PageComponent {
 }
 
 const Page = (props : PageComponent) => {
-
+    console.log(props.pageName)
     return (
-        <div className="m-0 w-full text-primary font-sans">
+        <div className="m-0 w-full text-primary bg-bio  font-sans">
             <Header/>
-            <div className="pt-20 bg-gradient">
+            <div className={props.pageName !== "home" ? "pt-[55px] bg-"+props.pageName : "pt-[55px] bg-gradient"}>
                 <div className="min-h-screen w-11/12 xl:p-6 m-auto">
                     {props.page}
                 </div>

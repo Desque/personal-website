@@ -18,7 +18,7 @@ const Header = () => {
 
     return (
         <div>
-            <div onScroll={changeBg} className={"whitespace-nowrap w-full flex justify-between items-center fixed top-0 px-6 py-2 z-50 "+ ( scrolled ? 'bg-primary text-secondary' : 'bg-transparent text-primary')}>
+            <div onScroll={changeBg} className={"whitespace-nowrap w-full flex justify-between items-center fixed top-0 px-6 py-2 z-50 bg-primary text-secondary "}>
                 <NavLink to="/" className="no-underline hover:text-tertiary active:translate-y-2 active:duration-100" >
                     <h1 className='lg:text-3xl sm:text-2xl text-xl'>QUENTIN DESBROUSSES</h1>
                 </NavLink>

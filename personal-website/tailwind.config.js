@@ -2,6 +2,7 @@
 module.exports = {
   important: true,
   mode: 'jit',
+  darkMode: 'media',
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
@@ -33,10 +34,11 @@ module.exports = {
       'dark-secondary':'#A4A9CE',
       'dark-tertiary':'#00C6C1',
       'bio':'#E18D59',
-      'hardskills':'#202f5a',
-      'experiences':'#c3012f',
-      'studies':'#019EE0',
-      'projects':'#51B455',
+      'experiences':'#e0547f',
+      'studies':'#d33932',
+      'hardskills':'#55bbee',
+      'projects':'#80c969',
+      'white':'#ffffffbb',
 
     },
     extend: {
@@ -55,10 +57,13 @@ module.exports = {
       },
     },
     variants: {
+      scrollbar: ['rounded'],
       extend: {
         visibility: ["group-hover"],
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwind-scrollbar'),
+  ],
 }
