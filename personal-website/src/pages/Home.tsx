@@ -13,10 +13,8 @@ const box = (imgName : string, imgLink : string, link : string, color : string, 
                 }
             </a>
         </div>
-
     )
 }
-
 const biography = () => {
     let softskills = [
         {
@@ -31,26 +29,28 @@ const biography = () => {
         }
         ]
     return (
-        <div className="group active:scale-75 active:border-tertiary active:duration-100 row-span-2 flex-col justify-center text-center border-2 border-bio rounded-lg text-secondary bg-bio p-6 transition hover:cursor-pointer hover:bg-secondary hover:text-bio hover:duration-200">
-            <NavLink to="/bio" className="">
-                <div className="flex-col">
-                    <div className="w-1/2 m-auto flex justify-center hover:animate-wiggle hover:cursor-pointer">
-                        <img className="rounded-full p-2 bg-white aspect-square transition hover:duration-200 group-hover:bg-bio bg-secondary shadow-4xl" src="assets/img/profile.png"/>
-                    </div>
-                    <div>
-                        <br/>
-                        <p className="font-bold">Quentin DESBROUSSES</p>
-                        <p>23 ans</p>
-                        <br/>
-                        <p className="font-bold">French engineer</p>
-                        <p>Frontend web developer - UX/UI Designer</p>
-                        <br/>
-                        <div className="flex flex-wrap justify-center gap-6">
-                            {
-                                softskills.map(softskill => {
-                                    return box(softskill.name,softskill.imgLink,softskill.link,"bio")
-                                })
-                            }
+        <div className="row-span-2">
+            <NavLink to="/bio">
+                <div className="w-full h-full group active:scale-75 active:border-tertiary active:duration-100 flex-col justify-center text-center border-2 border-bio rounded-lg text-secondary bg-bio transition hover:cursor-pointer hover:bg-secondary hover:text-bio hover:duration-200">
+                    <div className="flex-col p-6">
+                        <div className="w-1/2 m-auto flex justify-center hover:animate-wiggle hover:cursor-pointer">
+                            <img className="rounded-full p-2 bg-white aspect-square transition hover:duration-200 group-hover:bg-bio bg-secondary shadow-4xl" src="assets/img/profile.png"/>
+                        </div>
+                        <div>
+                            <br/>
+                            <p className="font-bold">Quentin DESBROUSSES</p>
+                            <p>23 ans</p>
+                            <br/>
+                            <p className="font-bold">French engineer</p>
+                            <p>Frontend web developer - UX/UI Designer</p>
+                            <br/>
+                            <div className="flex flex-wrap justify-center gap-6">
+                                {
+                                    softskills.map(softskill => {
+                                        return box(softskill.name,softskill.imgLink,softskill.link,"bio")
+                                    })
+                                }
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -60,20 +60,30 @@ const biography = () => {
 }
 const studies = () => {
     return (
-        <div className="group flex-col text-center border-2 border-studies rounded-lg hover:cursor-pointer transition text-secondary bg-studies hover:text-studies hover:bg-secondary hover:duration-200 p-6">
-            <div className="flex-col">
-                <p>Studies</p>
-                <div className="">
+        <div>
+            <NavLink to="/studies">
+                <div className="h-full w-full bg-studies group active:scale-75 active:border-tertiary active:duration-100 flex-col justify-center text-center border-2 border-bio rounded-lg text-secondary bg-bio transition hover:cursor-pointer hover:bg-secondary hover:text-bio hover:duration-200">
+                    <div className="flex-col p-6">
+                        <p>Studies</p>
+                        <div className="">
 
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </NavLink>
         </div>
     )
 }
 const experiences = () => {
     return (
-        <div className="group flex-col text-center border-2 border-experiences rounded-lg hover:cursor-pointer transition hover:duration-200 text-secondary bg-experiences hover:text-experiences hover:bg-secondary p-6">
-            <p>Experiences</p>
+        <div>
+            <NavLink to="/experiences">
+                <div className="h-full w-full bg-experiences group active:scale-75 active:border-tertiary active:duration-100 flex-col justify-center text-center border-2 border-bio rounded-lg text-secondary bg-bio transition hover:cursor-pointer hover:bg-secondary hover:text-bio hover:duration-200">
+                    <div className="flex-col p-6">
+                        <p>Experiences</p>
+                    </div>
+                </div>
+            </NavLink>
         </div>
     )
 }
@@ -111,31 +121,43 @@ const hardskills = () => {
         }
     ]
     return (
-        <div className="group flex-col text-center border-2 border-hardskills rounded-lg hover:cursor-pointer transition hover:duration-200 text-secondary hover:text-hardskills bg-hardskills hover:bg-secondary p-6">
-            <div className="flex-col">
-                <p>Hardskills</p>
-                <br/>
-                <div className="flex flex-wrap justify-center gap-6">
-                    {
-                        hardskills.map(hardskill => {
-                          return box(hardskill.name,hardskill.imgLink,hardskill.link,"hardskills",hardskill.percent)
-                      })
-                    }
+        <div>
+            <NavLink to="/hardskills">
+                <div className="h-full w-full bg-hardskills group active:scale-75 active:border-tertiary active:duration-100 flex-col justify-center text-center border-2 border-bio rounded-lg text-secondary bg-bio transition hover:cursor-pointer hover:bg-secondary hover:text-bio hover:duration-200">
+                    <div className="flex-col p-6">
+                        <p>Hardskills</p>
+                        <br/>
+                        <div className="flex flex-wrap justify-center gap-6">
+                            {
+                                hardskills.map(hardskill => {
+                                    return box(hardskill.name,hardskill.imgLink,hardskill.link,"hardskills",hardskill.percent)
+                                })
+                            }
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </NavLink>
         </div>
     )
 }
 const projects = () => {
     return (
-        <div className="group flex-col text-center border-2 border-projects rounded-lg hover:cursor-pointer transition hover:duration-200 text-secondary hover:text-projects bg-projects hover:bg-secondary p-6">
-            <div>
-                <p>Look at my projects on <a className=" text-tertiary hover:underline" href="https://github.com/QuentinDesbrousses" target="_blank">github</a></p>
-            </div>
-            <br/>
-            <div className="flex flex-wrap justify-center gap-6">
+        <div>
+            <NavLink to="/projects">
+                <div className="h-full w-full bg-projects group active:scale-75 active:border-tertiary active:duration-100 flex-col justify-center text-center border-2 border-bio rounded-lg text-secondary bg-bio transition hover:cursor-pointer hover:bg-secondary hover:text-bio hover:duration-200">
 
-            </div>
+                    <div className="flex-col p-6">
+                        <div>
+                            <p>Look at my projects on <a className=" text-tertiary hover:underline" href="https://github.com/QuentinDesbrousses" target="_blank">github</a></p>
+                        </div>
+                        <br/>
+                        <div className="flex flex-wrap justify-center gap-6">
+
+                        </div>
+                    </div>
+
+                </div>
+            </NavLink>
         </div>
     )
 }
@@ -152,7 +174,6 @@ const Home = () => {
                 {projects()}
             </div>
         </div>
-
     );
 };
 
