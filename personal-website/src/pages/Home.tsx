@@ -1,5 +1,9 @@
 import React from 'react';
 import {NavLink} from "react-router-dom";
+import Card from "../components/card/Card";
+import Carousel from "../components/carousel/Carousel3d";
+import Carousel3d from "../components/carousel/Carousel3d";
+import CarouselCard from '../components/carousel/CarouselCard';
 
 const box = (imgName : string, imgLink : string, link : string, color : string, percentage? : number) => {
     return (
@@ -8,13 +12,14 @@ const box = (imgName : string, imgLink : string, link : string, color : string, 
                 <img className={"aspect-square h-16 p-2"} src={imgLink} alt={imgName}/>
                 {!percentage ? <div></div> :
                     <div className="w-full">
-                        <p className={"absolute aspect-square text-sm text-center p-1 -top-4 -right-4 rounded-full bg-tertiary text-secondary"}>{percentage ? percentage+"%" : 0}</p>
+                        <div className={"absolute text-sm bot-0 rounded-md bg-tertiary text-secondary w-[70%]"}>{percentage ? percentage+"%" : 0}</div>
                     </div>
                 }
             </a>
         </div>
     )
 }
+
 const biography = () => {
     let softskills = [
         {
@@ -29,7 +34,7 @@ const biography = () => {
         }
         ]
     return (
-        <div className="row-span-2">
+        <div>
             <NavLink to="/bio">
                 <div className="w-full h-full group active:scale-75 active:border-tertiary active:duration-100 flex-col justify-center text-center border-2 border-bio rounded-lg text-secondary bg-bio transition hover:cursor-pointer hover:bg-secondary hover:text-bio hover:duration-200">
                     <div className="flex-col p-6">
@@ -58,6 +63,35 @@ const biography = () => {
         </div>
     )
 }
+
+const test0 =
+    <div className="w-full">
+        <NavLink to="/studies">
+            <Card colors={["bio","secondary","tertiary"]}>
+                <div>
+                    <div>
+                        <h1>ALORS ?</h1>
+                        <img src="assets/img/angular.png" className="h-16 aspect-square"/>
+                    </div>
+                </div>
+            </Card>
+        </NavLink>
+    </div>
+
+const test1 =
+    <div className="w-full">
+        <NavLink to="/studies">
+            <Card colors={["bio","secondary","tertiary"]}>
+                <div>
+                    <div>
+                        <h1>ALORS ?</h1>
+                        <img src="assets/img/angular.png" className="h-16 aspect-square"/>
+                    </div>
+                </div>
+            </Card>
+        </NavLink>
+    </div>
+
 const studies = () => {
     return (
         <div>
@@ -130,7 +164,7 @@ const hardskills = () => {
                         <div className="flex flex-wrap justify-center gap-6">
                             {
                                 hardskills.map(hardskill => {
-                                    return box(hardskill.name,hardskill.imgLink,hardskill.link,"hardskills",hardskill.percent)
+                                    return box(hardskill.name,hardskill.imgLink,hardskill.link,"hardskills")
                                 })
                             }
                         </div>
@@ -164,16 +198,16 @@ const projects = () => {
 
 const Home = () => {
     return (
-        <div className="flex-col align-middle items-center gap-6 min-h-screen">
-            <h1 className="text-4xl">Overview</h1>
-            <div className="grid grid-flow-row-dense grid-cols-3 grid-rows-2 gap-6 h-100">
-                {studies()}
-                {biography()}
-                {hardskills()}
-                {experiences()}
-                {projects()}
+        <div>
+            <div className="flex-col align-middle items-center gap-6 min-h-screen">
+                <h1 className="text-4xl">Overview</h1>
+                <CarouselCard>
+                    {test0}
+                    {test1}
+                </CarouselCard>
             </div>
         </div>
+ 
     );
 };
 
