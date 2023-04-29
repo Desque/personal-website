@@ -203,7 +203,6 @@ const Home = () => {
                 <h1 className="text-4xl">Overview</h1>
                 <CarouselCard>
                     {test0}
-                    {test1}
                 </CarouselCard>
             </div>
         </div>
