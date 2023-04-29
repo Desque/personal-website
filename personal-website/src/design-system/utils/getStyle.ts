@@ -76,11 +76,11 @@ const getText = (text? : string): string => {
 }
 
 const getTextColor = (textColor? : string): string => {
-    return ' color-'+textColor+' '
+    return ' text-'+textColor+' '
 }
 
 const getBgColor = (bgColor? : string): string => {
-    return ' color-'+bgColor+' '
+    return ' bg-'+bgColor+' '
 }
 
 const getWidth = (width? : string): string => {

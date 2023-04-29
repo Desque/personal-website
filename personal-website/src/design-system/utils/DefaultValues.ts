@@ -4,6 +4,6 @@ export const DEFAULT_VALUES = {
     vertical : ' align-middle ',
     width: ' w-full ',
     text : 'text-left',
-    textColor : 'primary',
-    bgColor : 'secondary',
+    textColor : 'inherit',
+    bgColor : 'inherit',
 }
