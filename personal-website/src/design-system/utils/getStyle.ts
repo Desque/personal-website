@@ -1,24 +1,22 @@
-import {GapType, HorizontalType, TextType, VerticalType} from "./EnumStyle";
+import {GapType, HorizontalType, TextType, VerticalType, WidthType} from "./EnumStyle";
 import {DEFAULT_VALUES} from "./DefaultValues";
 
 export interface Style {
-    gap?: GapType
-    text?: TextType
-    vertical?: VerticalType
-    horizontal?: HorizontalType
+    gap?: string
+    width?: string
+    text?: string
+    vertical?: string
+    horizontal?: string
     textColor?: string,
     bgColor?: string
 }
 
-export const getStyle = (style: Style | undefined): string => {
-    return style ? getCustomStyle(style) : getDefaultStyle()
-}
-
-const getCustomStyle = (
+export const getStyle = (
     {
         horizontal,
         vertical,
         gap,
+        width,
         text,
         textColor,
         bgColor
@@ -28,23 +26,13 @@ const getCustomStyle = (
         getVertical(vertical) +
         getGap(gap) +
         getText(text) +
+        getWidth(width) +
         getTextColor(textColor) +
         getBgColor(bgColor)
     )
 }
 
-const getDefaultStyle = (): string => {
-    return (
-        getHorizontal() +
-        getVertical() +
-        getGap() +
-        getText() +
-        getTextColor() +
-        getBgColor()
-    )
-}
-
-const getHorizontal = (horizontal? : HorizontalType | undefined): string => {
+const getHorizontal = (horizontal? : string): string => {
     switch (horizontal) {
         case HorizontalType.LEFT: return ' justify-start '
         case HorizontalType.CENTER: return ' justify-center '
@@ -52,46 +40,56 @@ const getHorizontal = (horizontal? : HorizontalType | undefined): string => {
         case HorizontalType.BETWEEN: return ' justify-between '
         case HorizontalType.EVENLY: return ' justify-evenly '
         case HorizontalType.STRETCH: return ' justify-stretch '
-        default: return DEFAULT_VALUES.horizontal
+        default: return ''
     }
 }
 
-const getVertical = (vertical? : VerticalType | undefined): string => {
+const getVertical = (vertical? :string): string => {
     switch (vertical) {
         case VerticalType.TOP: return ' align-top '
         case VerticalType.MIDDLE: return ' align-middle '
         case VerticalType.BOTTOM: return ' align-bottom '
         case VerticalType.BASELINE: return ' align-baseline '
-        default: return DEFAULT_VALUES.vertical
+        default: return ''
     }
 }
 
-const getGap = (gap? : GapType | undefined): string => {
+const getGap = (gap? : string): string => {
     switch (gap) {
         case GapType.SM: return ' gap-2 '
         case GapType.MD: return ' gap-6 '
         case GapType.LG: return ' gap-12 '
         case GapType.XL: return ' gap-24 '
         case GapType.XXL: return ' gap-56 '
-        default: return DEFAULT_VALUES.gap
+        default: return ''
     }
 }
 
-const getText = (text? : TextType | undefined): string => {
+const getText = (text? : string): string => {
     switch (text) {
         case TextType.LEFT: return ' text-left '
         case TextType.CENTER: return ' text-center '
         case TextType.RIGHT: return ' text-right '
         case TextType.JUSTIFY: return ' text-justify '
-        default: return DEFAULT_VALUES.text
+        default: return ''
     }
 }
 
-const getTextColor = (textColor? : string | undefined): string => {
-    return textColor ? ' color-'+textColor+' ' : DEFAULT_VALUES.textColor
+const getTextColor = (textColor? : string): string => {
+    return ' color-'+textColor+' '
 }
 
-const getBgColor = (bgColor? : string | undefined): string => {
-    return bgColor ? ' color-'+bgColor+' ' : DEFAULT_VALUES.bgColor
+const getBgColor = (bgColor? : string): string => {
+    return ' color-'+bgColor+' '
+}
+
+const getWidth = (width? : string): string => {
+    switch (width) {
+        case WidthType.full: return " w-full "
+        case WidthType.half: return " w-1/2 "
+        case WidthType.quarter: return " w-1/4 "
+        case WidthType.third: return " w-1/3 "
+        default: return ''
+    }
 }
 

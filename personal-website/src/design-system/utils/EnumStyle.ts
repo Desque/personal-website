@@ -15,10 +15,10 @@ export enum VerticalType {
 }
 
 export enum TextType {
-    LEFT = 'text-left',
-    CENTER = 'text-center',
-    RIGHT = 'text-right',
-    JUSTIFY = 'text-justify',
+    LEFT = 'left',
+    CENTER = 'center',
+    RIGHT = 'right',
+    JUSTIFY = 'justify',
 }
 
 export enum GapType {
@@ -27,4 +27,11 @@ export enum GapType {
     LG = 'lg',
     XL = 'xl',
     XXL = 'xxl',
+}
+
+export enum WidthType {
+    full = 'full',
+    half = 'half',
+    third = 'third',
+    quarter = 'quarter'
 }
