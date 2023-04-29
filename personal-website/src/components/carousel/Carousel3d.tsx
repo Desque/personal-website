@@ -4,9 +4,7 @@ import CarouselCard from "./CarouselCard";
 const oldCarousel = () => {
     return (
         <div className="carousel">
-            <CarouselCard/>
-            <CarouselCard/>
-            <CarouselCard/>
+
         </div>
     )
 }
