@@ -22,6 +22,7 @@ export enum TextType {
 }
 
 export enum GapType {
+    NONE = 'none',
     SM = 'sm',
     MD = 'md',
     LG = 'lg',

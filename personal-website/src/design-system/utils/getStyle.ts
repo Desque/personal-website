@@ -58,6 +58,7 @@ const getVertical = (vertical? :string): string => {
 
 const getGap = (gap? : string): string => {
     switch (gap) {
+        case GapType.NONE: return ' gap-0 '
         case GapType.SM: return ' gap-2 '
         case GapType.MD: return ' gap-6 '
         case GapType.LG: return ' gap-12 '

@@ -14,7 +14,7 @@ const RowDiv = ({children, gap, width, text, vertical, horizontal, textColor, bg
         bgColor: bgColor ?? DEFAULT_VALUES.bgColor
     }
     return (
-        <div className={"flex flex-row flex-nowrap rounded-md"+getStyle(style)}>
+        <div className={"flex flex-row flex-wrap rounded-md"+getStyle(style)}>
             {children}
         </div>
     );
