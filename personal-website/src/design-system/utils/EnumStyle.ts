@@ -30,8 +30,15 @@ export enum GapType {
 }
 
 export enum WidthType {
-    full = 'full',
-    half = 'half',
-    third = 'third',
-    quarter = 'quarter'
+    FULL = 'full',
+    HALF = 'half',
+    THIRD = 'third',
+    QUARTER = 'quarter'
+}
+
+export enum HeightType {
+    FULL = 'full',
+    HALF = 'half',
+    THIRD = 'third',
+    QUARTER = 'quarter'
 }

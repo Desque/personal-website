@@ -1,6 +1,6 @@
 import React from 'react';
 import {DivProps} from "./DivProps";
-import {getStyle, Style} from "../../utils/getStyle";
+import { getStyle, Style} from "../../utils/getStyle";
 import {DEFAULT_VALUES} from "../../utils/DefaultValues";
 
 const RowDiv = ({children, gap, width, text, vertical, horizontal, textColor, bgColor} : DivProps) => {
@@ -14,7 +14,7 @@ const RowDiv = ({children, gap, width, text, vertical, horizontal, textColor, bg
         bgColor: bgColor ?? DEFAULT_VALUES.bgColor
     }
     return (
-        <div className={"flex flex-row"+getStyle(style)}>
+        <div className={"flex flex-row flex-nowrap rounded-md"+getStyle(style)}>
             {children}
         </div>
     );

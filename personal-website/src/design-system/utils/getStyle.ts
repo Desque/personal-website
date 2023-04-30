@@ -1,9 +1,9 @@
-import {GapType, HorizontalType, TextType, VerticalType, WidthType} from "./EnumStyle";
-import {DEFAULT_VALUES} from "./DefaultValues";
+import {GapType, HeightType, HorizontalType, TextType, VerticalType, WidthType} from "./EnumStyle";
 
 export interface Style {
     gap?: string
     width?: string
+    height?: string
     text?: string
     vertical?: string
     horizontal?: string
@@ -17,6 +17,7 @@ export const getStyle = (
         vertical,
         gap,
         width,
+        height,
         text,
         textColor,
         bgColor
@@ -27,6 +28,7 @@ export const getStyle = (
         getGap(gap) +
         getText(text) +
         getWidth(width) +
+        getHeight(height) +
         getTextColor(textColor) +
         getBgColor(bgColor)
     )
@@ -85,10 +87,20 @@ const getBgColor = (bgColor? : string): string => {
 
 const getWidth = (width? : string): string => {
     switch (width) {
-        case WidthType.full: return " w-full "
-        case WidthType.half: return " w-1/2 "
-        case WidthType.quarter: return " w-1/4 "
-        case WidthType.third: return " w-1/3 "
+        case WidthType.FULL: return " w-full "
+        case WidthType.HALF: return " w-1/2 "
+        case WidthType.QUARTER: return " w-1/4 "
+        case WidthType.THIRD: return " w-1/3 "
+        default: return ''
+    }
+}
+
+const getHeight = (height? : string): string => {
+    switch (height) {
+        case HeightType.FULL: return " h-full "
+        case HeightType.HALF: return " h-1/2 "
+        case HeightType.QUARTER: return " h-1/4 "
+        case HeightType.THIRD: return " h-1/3 "
         default: return ''
     }
 }

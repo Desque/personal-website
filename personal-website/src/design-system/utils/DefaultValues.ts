@@ -1,8 +1,11 @@
+import {GapType, HorizontalType, VerticalType, WidthType} from "./EnumStyle";
+
 export const DEFAULT_VALUES = {
-    gap : ' gap-0 ',
-    horizontal : ' justify-between ',
-    vertical : ' align-middle ',
-    width: ' w-full ',
+    gap : ' '+GapType.SM+' ',
+    horizontal : ' '+HorizontalType.BETWEEN+' ',
+    vertical : ' '+VerticalType.MIDDLE+' ',
+    width: ' '+WidthType.FULL+' ',
+    height: ' h-full ',
     text : 'text-left',
     textColor : 'inherit',
     bgColor : 'inherit',
