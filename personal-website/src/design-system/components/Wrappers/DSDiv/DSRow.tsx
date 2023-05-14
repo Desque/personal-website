@@ -1,9 +1,9 @@
 import React from 'react';
-import {DivProps} from "./DivProps";
-import { getStyle, Style} from "../../utils/getStyle";
-import {DEFAULT_VALUES} from "../../utils/DefaultValues";
+import {DSDivProps} from "./DSDivProps";
+import { getStyle, Style} from "../../../utils/getStyle";
+import {DEFAULT_VALUES} from "../../../utils/DefaultValues";
 
-const RowDiv = ({children, gap, width, text, vertical, horizontal, textColor, bgColor} : DivProps) => {
+const DSRow = ({children, gap, width, text, vertical, horizontal, textColor, bgColor, evChange, evClick, evBlur, evFocus} : DSDivProps) => {
     const style : Style = {
         gap: gap ?? DEFAULT_VALUES.gap,
         width: width ?? DEFAULT_VALUES.width,
@@ -14,10 +14,10 @@ const RowDiv = ({children, gap, width, text, vertical, horizontal, textColor, bg
         bgColor: bgColor ?? DEFAULT_VALUES.bgColor
     }
     return (
-        <div className={"flex flex-row flex-wrap rounded-md"+getStyle(style)}>
+        <div className={"flex flex-row flex-wrap rounded-md lg:p-5 md:p-3 md:p-5 sm:p-2 p-1"+getStyle(style)}>
             {children}
         </div>
     );
 };
 
-export default RowDiv;
+export default DSRow;
