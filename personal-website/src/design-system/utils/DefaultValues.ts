@@ -6,7 +6,8 @@ export const DEFAULT_VALUES = {
     vertical : ' '+VerticalType.MIDDLE+' ',
     width: ' '+WidthType.FULL+' ',
     height: ' h-full ',
-    text : 'text-left',
-    textColor : 'inherit',
-    bgColor : 'inherit',
+    textAlign : ' text-left ',
+    textSize : ' inherit ',
+    textColor : ' inherit ',
+    bgColor : ' inherit ',
 }

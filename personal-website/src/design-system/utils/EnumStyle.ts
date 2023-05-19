@@ -14,7 +14,7 @@ export enum VerticalType {
     BASELINE = 'baseline',
 }
 
-export enum TextType {
+export enum TextAlignType {
     LEFT = 'left',
     CENTER = 'center',
     RIGHT = 'right',
@@ -42,4 +42,26 @@ export enum HeightType {
     HALF = 'half',
     THIRD = 'third',
     QUARTER = 'quarter'
+}
+
+export enum ImageShapeType {
+    square = 'square',
+    video = 'video',
+}
+
+export enum TextSizeType {
+    TITLE_1 = "h1",
+    TITLE_2 = "h2",
+    TITLE_3 = "h3",
+    SUBTITLE = "h4",
+    BASE = "lg",
+    SMALL = "sm"
+}
+
+export enum ImageWidthType {
+    SMALL = "sm",
+    BASE = "base",
+    MEDIUM = "md",
+    LARGE = "lg",
+    XL = "xl"
 }

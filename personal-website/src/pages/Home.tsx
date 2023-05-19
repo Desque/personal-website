@@ -1,9 +1,10 @@
 import React from 'react';
 import {NavLink} from "react-router-dom";
-import Card from "../components/card/Card";
-import Carousel from "../components/carousel/Carousel3d";
-import Carousel3d from "../components/carousel/Carousel3d";
-import CarouselCard from '../components/carousel/CarouselCard';
+import DSCol from "../design-system/components/Wrappers/DSDiv/DSCol";
+import DSCard from "../design-system/components/Wrappers/DSCard/DSCard";
+import DSImage from "../design-system/components/Elements/DSImage/DSImage";
+import DSParagraph from "../design-system/components/Elements/DSParagraph/DSParagraph";
+import {HorizontalType, ImageWidthType, TextSizeType, WidthType} from "../design-system/utils/EnumStyle";
 
 const box = (imgName : string, imgLink : string, link : string, color : string, percentage? : number) => {
     return (
@@ -63,34 +64,17 @@ const biography = () => {
         </div>
     )
 }
-
-const test0 =
-    <div className="w-full">
-        <NavLink to="/studies">
-            <Card colors={["bio","secondary","tertiary"]}>
-                <div>
-                    <div>
-                        <h1>ALORS ?</h1>
-                        <img src="assets/img/angular.png" className="h-16 aspect-square"/>
-                    </div>
-                </div>
-            </Card>
-        </NavLink>
-    </div>
-
-const test1 =
-    <div className="w-full">
-        <NavLink to="/studies">
-            <Card colors={["bio","secondary","tertiary"]}>
-                <div>
-                    <div>
-                        <h1>ALORS ?</h1>
-                        <img src="assets/img/angular.png" className="h-16 aspect-square"/>
-                    </div>
-                </div>
-            </Card>
-        </NavLink>
-    </div>
+const ProfilePhoto = () => {
+    return (
+        <DSCard width={WidthType.THIRD} bgColor="bio">
+            <DSImage cropCircle={true} width={ImageWidthType.MEDIUM} link={"assets/img/profile.png"} />
+            <DSCol horizontal={HorizontalType.CENTER}>
+                <DSParagraph textSize={TextSizeType.TITLE_2}>Quentin DESBROUSSES</DSParagraph>
+                <DSParagraph textSize={TextSizeType.TITLE_3}>24yd</DSParagraph>
+            </DSCol>
+        </DSCard>
+    )
+}
 
 const studies = () => {
     return (
@@ -198,15 +182,12 @@ const projects = () => {
 
 const Home = () => {
     return (
-        <div>
-            <div className="flex-col align-middle items-center gap-6 min-h-screen">
-                <h1 className="text-4xl">Overview</h1>
-                <CarouselCard>
-                    {test0}
-                </CarouselCard>
+        <DSCol>
+            <h1 className="text-4xl">Overview</h1>
+            <div className="flex">
+                <ProfilePhoto/>
             </div>
-        </div>
- 
+        </DSCol>
     );
 };
 

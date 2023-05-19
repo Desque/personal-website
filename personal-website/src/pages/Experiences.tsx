@@ -1,30 +1,49 @@
 import React from 'react';
-import ColDiv from "../design-system/components/Div/ColDiv";
-import RowDiv from "../design-system/components/Div/RowDiv";
+import DSCol from "../design-system/components/Wrappers/DSDiv/DSCol";
+import DSRow from "../design-system/components/Wrappers/DSDiv/DSRow";
 import {HorizontalType, WidthType} from "../design-system/utils/EnumStyle";
-import Card from "../design-system/components/Card";
+import DSCard from "../design-system/components/Wrappers/DSCard/DSCard";
+import DSCardPanel from '../design-system/components/Wrappers/DSCardPanel/DSCardPanel';
 
 const Experiences = () => {
     return (
         <div className="p-6 rounded-lg text-secondary bg-experiences bg-opacity-80">
             <h1>My experiences</h1>
 
-            <RowDiv horizontal={HorizontalType.BETWEEN} bgColor="secondary">
-                <ColDiv width={WidthType.THIRD} textColor="tertiary" bgColor="primary">
-                    <Card width={WidthType.THIRD} bgColor="primary">
+            <DSCardPanel>
+                <DSCard bgColor="primary">
+                    <p>Test</p>
+                </DSCard>
+                <DSCard bgColor="primary">
+                    <p>Test</p>
+                </DSCard>
+                <DSCard bgColor="primary">
+                    <p>Test</p>
+                </DSCard>
+                <DSCard bgColor="primary">
+                    <p>Test</p>
+                </DSCard>
+                <DSCard bgColor="primary">
+                    <p>Test</p>
+                </DSCard>
+            </DSCardPanel>
+
+            <DSRow horizontal={HorizontalType.BETWEEN} bgColor="secondary">
+                <DSCol width={WidthType.THIRD} textColor="tertiary" bgColor="primary">
+                    <DSCard width={WidthType.THIRD} bgColor="primary">
                         <p>Test</p>
-                    </Card>
-                </ColDiv>
-                <ColDiv width={WidthType.THIRD} bgColor="tertiary">
+                    </DSCard>
+                </DSCol>
+                <DSCol width={WidthType.THIRD} bgColor="tertiary">
                     <p>Bonsoir</p>
-                </ColDiv>
-                <ColDiv width={WidthType.THIRD} bgColor="tertiary">
+                </DSCol>
+                <DSCol width={WidthType.THIRD} bgColor="tertiary">
                     <p>Bonsoir</p>
-                </ColDiv>
-                <ColDiv width={WidthType.THIRD} bgColor="tertiary">
+                </DSCol>
+                <DSCol width={WidthType.THIRD} bgColor="tertiary">
                     <p>Bonsoir</p>
-                </ColDiv>
-            </RowDiv>
+                </DSCol>
+            </DSRow>
 
 
         </div>

@@ -1,13 +1,22 @@
-import {GapType, HeightType, HorizontalType, TextType, VerticalType, WidthType} from "./EnumStyle";
+import {
+    GapType,
+    HeightType,
+    HorizontalType, ImageWidthType,
+    TextAlignType,
+    TextSizeType,
+    VerticalType,
+    WidthType
+} from "./EnumStyle";
 
 export interface Style {
     gap?: string
     width?: string
     height?: string
-    text?: string
+    textAlign?: string
+    textSize?: string
     vertical?: string
     horizontal?: string
-    textColor?: string,
+    textColor?: string
     bgColor?: string
 }
 
@@ -18,15 +27,17 @@ export const getStyle = (
         gap,
         width,
         height,
-        text,
+        textAlign,
+        textSize,
         textColor,
-        bgColor
+        bgColor,
     } : Style): string => {
     return (
         getHorizontal(horizontal) +
         getVertical(vertical) +
         getGap(gap) +
-        getText(text) +
+        getTextAlign(textAlign) +
+        getTextSize(textSize) +
         getWidth(width) +
         getHeight(height) +
         getTextColor(textColor) +
@@ -68,12 +79,12 @@ const getGap = (gap? : string): string => {
     }
 }
 
-const getText = (text? : string): string => {
+const getTextAlign = (text? : string): string => {
     switch (text) {
-        case TextType.LEFT: return ' text-left '
-        case TextType.CENTER: return ' text-center '
-        case TextType.RIGHT: return ' text-right '
-        case TextType.JUSTIFY: return ' text-justify '
+        case TextAlignType.LEFT: return ' text-left '
+        case TextAlignType.CENTER: return ' text-center '
+        case TextAlignType.RIGHT: return ' text-right '
+        case TextAlignType.JUSTIFY: return ' text-justify '
         default: return ''
     }
 }
@@ -89,9 +100,9 @@ const getBgColor = (bgColor? : string): string => {
 const getWidth = (width? : string): string => {
     switch (width) {
         case WidthType.FULL: return " w-full "
-        case WidthType.HALF: return " w-1/2 "
-        case WidthType.QUARTER: return " w-1/4 "
-        case WidthType.THIRD: return " w-1/3 "
+        case WidthType.HALF: return " w-[50vw] "
+        case WidthType.QUARTER: return " w-[25vw] "
+        case WidthType.THIRD: return " w-[33.3vw] "
         default: return ''
     }
 }
@@ -103,6 +114,29 @@ const getHeight = (height? : string): string => {
         case HeightType.QUARTER: return " h-1/4 "
         case HeightType.THIRD: return " h-1/3 "
         default: return ''
+    }
+}
+
+export const getTextSize = (textSize?: string): string => {
+    switch (textSize) {
+        case TextSizeType.TITLE_1: return " text-4xl "
+        case TextSizeType.TITLE_2: return " text-3xl "
+        case TextSizeType.TITLE_3: return " text-2xl "
+        case TextSizeType.SUBTITLE: return " text-xl "
+        case TextSizeType.BASE: return " text-base "
+        case TextSizeType.SMALL: return " text-sm "
+        default: return ''
+    }
+}
+
+export const getImageWidth = (imageWidth?: string): number => {
+    switch (imageWidth) {
+        case ImageWidthType.SMALL: return 5
+        case ImageWidthType.BASE: return 8
+        case ImageWidthType.MEDIUM: return 10
+        case ImageWidthType.LARGE: return 15
+        case ImageWidthType.XL: return 20
+        default: return 100
     }
 }
 

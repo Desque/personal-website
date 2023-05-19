@@ -11,13 +11,13 @@ interface PageComponent {
 const Page = (props : PageComponent) => {
     console.log(props.pageName)
     return (
-        <div className="m-0 w-full text-primary bg-bio  font-sans">
+        <div className="m-0 w-screen text-primary bg-bio  font-sans">
             <Header/>
-            <div className={props.pageName !== "home" ? "pt-[55px] bg-"+props.pageName : "pt-[55px] bg-gradient"}>
-                <div className="min-h-screen w-11/12 xl:p-6 m-auto">
+            <div className={props.pageName !== "home" ? "pt-[5vh] bg-"+props.pageName : "pt-[5vh] bg-gradient"}>
+                <div className="min-h-screen w-[90vw] xl:p-6 m-auto">
                     {props.page}
                 </div>
-                <div className="bottom-0 pb-6 mt-16 text-center sticky">
+                <div className="bottom-0 pb-[1vh] text-center sticky">
                     <Navigation activePage={props.pageName} />
                 </div>
             </div>
