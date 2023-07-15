@@ -2,7 +2,7 @@
 module.exports = {
   important: true,
   mode: 'jit',
-  darkMode: 'media',
+  darkMode: 'class',
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
@@ -29,10 +29,10 @@ module.exports = {
     colors: {
       'primary':'#333C42ed',
       'secondary':'#eaebec',
-      'tertiary':'#8c52ff',
-      'dark-primary':'#353745',
+      'tertiary':'#966DE8',
+      'dark-primary':'#1E223B',
       'dark-secondary':'#A4A9CE',
-      'dark-tertiary':'#00C6C1',
+      'dark-tertiary':'#5E25CD',
       'bio':'#E18D59',
       'experiences':'#e0547f',
       'studies':'#d33932',
