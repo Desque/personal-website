@@ -39,6 +39,7 @@ module.exports = {
       'hardskills':'#55bbee',
       'projects':'#80c969',
       'white':'#ffffffbb',
+      'danger':'#d33932'
 
     },
     extend: {

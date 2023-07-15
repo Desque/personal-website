@@ -1,4 +1,5 @@
 import {
+    ActionType,
     GapType,
     HeightType,
     HorizontalType, ImageWidthType,
@@ -137,6 +138,15 @@ export const getImageWidth = (imageWidth?: string): number => {
         case ImageWidthType.LARGE: return 15
         case ImageWidthType.XL: return 20
         default: return 100
+    }
+}
+
+export const getActionType = (actionType?: string): {textColor: string, bgColor: string} => {
+    switch (actionType) {
+        case ActionType.PRIMARY: return {textColor:"secondary",bgColor:"tertiary"}
+        case ActionType.SECONDARY: return {textColor:"tertiary",bgColor:"secondary"}
+        case ActionType.CANCEL: return {textColor:"secondary",bgColor:"danger"}
+        default: return {textColor:"secondary",bgColor:"tertiary"}
     }
 }
 

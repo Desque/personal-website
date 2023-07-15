@@ -65,3 +65,9 @@ export enum ImageWidthType {
     LARGE = "lg",
     XL = "xl"
 }
+
+export enum ActionType {
+    PRIMARY = "primary",
+    SECONDARY = "secondary",
+    CANCEL = "cancel",
+}

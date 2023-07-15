@@ -10,11 +10,13 @@ import Biography from "./pages/Biography";
 import React from 'react';
 import Page from "./pages/page";
 import Experiences from "./pages/Experiences";
+import Main from "./pages/Main";
 
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
+          <Route path="*" element={<Main/>} />
           <Route path="*" element={<Page page={<Home />} pageName={'home'}/>} />
           <Route path="/bio" element={<Page page={<Biography />} pageName={'bio'}/>} />
           <Route path="/description" element={<Page page={<Description />} pageName={'description'}/>} />
