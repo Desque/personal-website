@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Header from "../components/Header";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
@@ -9,10 +9,10 @@ interface PageComponent {
 }
 
 const Page = (props : PageComponent) => {
-    console.log(props.pageName)
+
     return (
-        <div className="m-0 w-screen text-primary bg-bio  font-sans">
-            <Header/>
+        <div className={"m-0 w-screen text-primary font-sans"}>
+            <Header />
             <div className={props.pageName !== "home" ? "pt-[5vh] bg-"+props.pageName : "pt-[5vh] bg-gradient"}>
                 <div className="min-h-screen w-[90vw] xl:p-6 m-auto">
                     {props.page}
